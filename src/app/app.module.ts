@@ -10,10 +10,12 @@ import { AboutComponent } from './about/about.component';
 import {  TruncatePipe }   from './limitpipe/limitpipe';
 import { SinglearticleComponent } from './singlearticle/singlearticle.component';
 import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'about', component: AboutComponent },
+  { path: 'article/:id', component: SinglearticleComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' }
 ];
 
@@ -24,7 +26,8 @@ const routes: Routes = [
     AboutComponent,
     TruncatePipe,
     SinglearticleComponent,
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

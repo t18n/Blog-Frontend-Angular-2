@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router, Params } from '@angular/router';
+import { Article } from './../home/article';
+import { ARTICLESDATA } from './../home/articledata';
 
 @Component({
   selector: 'app-singlearticle',
@@ -7,9 +10,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SinglearticleComponent implements OnInit {
 
-  constructor() { }
+  public article: Article;
+  public articlePrev: Article;
+  public articleNext: Article;
+  public content_id: string;
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit() {
+    this.route.params.subscribe(params => {
+      this.content_id = (params['id']);
+      this.getArticle();
+    });
+
+  }
+
+  public getArticle() {
+    for (var i = 0; i < ARTICLESDATA.length; ++i) {
+      if (ARTICLESDATA[i].id === this.content_id) {
+        this.article = ARTICLESDATA[i];
+        this.articlePrev = ARTICLESDATA[i - 1];
+        this.articleNext = ARTICLESDATA[i + 1];
+      }
+    }
   }
 
 }
