@@ -91,5 +91,5 @@ var ARTICLESDATA = [
         "numlikes": "14",
         "numdislikes": "2",
         "coverimagelink": "..."
-      },
+      }
   ]
