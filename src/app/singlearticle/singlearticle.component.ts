@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
-import { Article } from './../home/article';
-import { ARTICLESDATA } from './../home/articledata';
+import { Article } from './../article/article';
+import { ARTICLESDATA } from './../article/articledata';
 
 @Component({
   selector: 'app-singlearticle',

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { SUBSCRIBEDEMAILS } from './../mail/maildata'
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -22,8 +22,5 @@ export class HeaderComponent implements OnInit {
   
 }
 
-var SUBSCRIBEDEMAILS = [
-      {
-        "email":"sarojadhikarix@gmail.com"
-      }]
+
       
