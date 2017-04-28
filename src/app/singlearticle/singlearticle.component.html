@@ -3,14 +3,32 @@
         <div class="row">
             <div class="col-md-8 single-post-contents">
                 <article class="single-post-content row m0 post">
-                    <header class="row">                        
+                    <header class="row">
                         <h5 class="post-meta">
                             <a href="#" class="date">{{ article.date }}</a>
                             <span class="post-author"><i>by</i><a href="#">{{ article.auther }}</a></span>
                         </h5>
                         <h2 class="post-title">{{ article.title }}</h2>
+                        <ul class="nav social-nav">
+                            <li><a (click)="showShare('share')"><i class="fa fa-share-alt"></i></a></li>
+                            <li><a (click)="showShare('pinterest')"><i class="fa fa-pinterest"></i></a></li>
+                            <li><a (click)="showShare('reddit')"></a></li>
+                            <li>
+                                <a href="//www.reddit.com/submit" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent(window.location); return false">
+                                <i class="fa fa-reddit-alien"></i></a>
+                            </li>
+                            <li><a (click)="showShare('twitter')"><i class="fa fa-twitter"></i></a></li>
+                            <li>
+                                    <a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.facebook.com%2FSowable-1757645864547084%2F&amp;src=sdkpreparse">
+                                        <i class="fa fa-facebook-official"></i></a>
+                            </li>
+                            <li><a (click)="showShare('google')"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a (click)="showShare('instagram')"><i class="fa fa-instagram"></i></a></li>
+                            <li><a (click)="showShare('evelope')"><i class="fa fa-envelope"></i></a></li>
+
+                        </ul><br/>
                         <div class="row">
-                            <h5 class="taxonomy pull-left"><i>in</i> <a href="#">image</a>, <a href="#">entertainment</a></h5>
+                            <h5 class="taxonomy pull-left"><i>in</i><a href="#" class="tag">{{ article.tags }}</a> </h5>
                             <div class="response-count pull-right"><img src="images/comment-icon-gray.png" alt="">5</div>
                         </div>
                     </header>
@@ -20,10 +38,17 @@
                     <div class="post-content row">
                         {{ article.bodytext }}
                     </div>
+                    <ul class="nav social-nav">
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-facebook-official"></i></a></li>
+                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                        <li><a href="#"><i class="fa fa-envelope"></i></a></li>
+                    </ul>
                     <div class="row m0 tags">
                         <a href="#" class="tag">{{ article.tags }}</a>
                     </div>
-                    
+
                     <ul class="pager">
                         <li *ngIf="articlePrev != null">
                             <h4>Previous Articles</h4>
@@ -36,7 +61,7 @@
                             <h5 class="taxonomy pull-left"><i>in</i> <a routerLink="/article/{{article.id}}">{{articleNext.tags}}</a></h5>
                         </li>
                     </ul>
-                    
+
                     <div class="row m0 comments">
                         <h5 class="response-count">{{article.numcomments}} comments<a href="#comment-form" class="btn btn-primary pull-right"><span>add comment</span></a></h5>
                         <!--Comments-->
@@ -47,7 +72,8 @@
                             <div class="media-body">
                                 <h4><a href="#">Mark Sanders</a></h4>
                                 <h5><a href="#" class="date">feb 17, 2016 at 3:30pm</a> | <a href="#" class="reply-link">reply</a></h5>
-                                <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>                                
+                                <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining
+                                    essentially unchanged.</p>
                                 <!--Comments-->
                                 <div class="media comment reply">
                                     <div class="media-left">
@@ -56,7 +82,8 @@
                                     <div class="media-body">
                                         <h4><a href="#">Mark Sanders</a></h4>
                                         <h5><a href="#" class="date">feb 17, 2016 at 3:30pm</a> | <a href="#" class="reply-link">reply</a></h5>
-                                        <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                                        <p>It has survived not only five centuries, but also the leap into electronic typesetting,
+                                            remaining essentially unchanged.</p>
                                         <!--Comments-->
                                         <div class="media comment reply">
                                             <div class="media-left">
@@ -73,8 +100,10 @@
                                                     </div>
                                                     <div class="media-body">
                                                         <h4><a href="#">Mark Sanders</a></h4>
-                                                        <h5><a href="#" class="date">feb 17, 2016 at 3:30pm</a> | <a href="#" class="reply-link">reply</a></h5>
-                                                        <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit</p>
+                                                        <h5><a href="#" class="date">feb 17, 2016 at 3:30pm</a> | <a href="#"
+                                                                class="reply-link">reply</a></h5>
+                                                        <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit
+                                                            aut fugit</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -82,7 +111,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>                        
+                        </div>
                         <!--Comments-->
                         <div class="media comment reply">
                             <div class="media-left">
@@ -91,11 +120,12 @@
                             <div class="media-body">
                                 <h4><a href="#">Mark Sanders</a></h4>
                                 <h5><a href="#" class="date">feb 17, 2016 at 3:30pm</a> | <a href="#" class="reply-link">reply</a></h5>
-                                <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                                <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining
+                                    essentially unchanged.</p>
                             </div>
                         </div>
                     </div>
-                    
+
                     <form action="#" method="post" class="comment-form row" id="comment-form">
                         <h5 class="form-title">leave a reply</h5>
                         <div class="form-group col-sm-6">
@@ -108,7 +138,7 @@
                         </div>
                         <div class="form-group col-sm-6">
                             <label for="website">website</label>
-                            <input type="url" id="website" class="form-control" placeholder="Your website url" >
+                            <input type="url" id="website" class="form-control" placeholder="Your website url">
                         </div>
                         <div class="form-group col-sm-6">
                             <label for="subject">subject</label>
@@ -125,23 +155,21 @@
                     </form>
                 </article>
             </div>
-            <div class="col-md-4 sidebar">               
+            <div class="col-md-4 sidebar">
                 <!--Author Widget-->
                 <aside class="row m0 widget-author widget">
                     <div class="widget-author-inner row">
-                        <div class="author-avatar row"><a href="#"><img src="http://placehold.it/108x108" alt="" class="img-circle"></a></div>
-                        <a href="#"><h2 class="author-name">Mark Sanders</h2></a>
+                        <div class="author-avatar row">
+                            <a href="#"><img src="http://placehold.it/108x108" alt="" class="img-circle"></a>
+                        </div>
+                        <a href="#">
+                            <h2 class="author-name">Mark Sanders</h2>
+                        </a>
                         <h5 class="author-title">small title</h5>
-                        <p>The word nature is derived from the Latin word natura, or "essential qualities, innate disposition", and in ancient times, literally meant "birth".</p>
+                        <p>The word nature is derived from the Latin word natura, or "essential qualities, innate disposition",
+                            and in ancient times, literally meant "birth".</p>
                         <a href="#" class="know-more">know more</a>
                     </div>
-                    <ul class="nav social-nav">
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-facebook-official"></i></a></li>
-                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                        <li><a href="#"><i class="fa fa-envelope"></i></a></li>
-                    </ul>
                 </aside>
                 <!--Twitter Widget-->
                 <aside class="row m0 widget widget-twitter">
@@ -164,3 +192,12 @@
         </div>
     </div>
 </section>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-body">
+            <a data-pin-do="embedUser" data-pin-board-width="500" data-pin-scale-height="400" data-pin-scale-width="80" href="https://www.pinterest.com/sowable/pins/"></a>
+        </div>
+    </div>
+</div>

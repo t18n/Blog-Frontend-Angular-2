@@ -3,6 +3,8 @@ import { ActivatedRoute, Router, Params } from '@angular/router';
 import { Article } from './../article/article';
 import { ARTICLESDATA } from './../article/articledata';
 
+declare var $: any;
+
 @Component({
   selector: 'app-singlearticle',
   templateUrl: './singlearticle.component.html',
@@ -14,6 +16,8 @@ export class SinglearticleComponent implements OnInit {
   public articlePrev: Article;
   public articleNext: Article;
   public content_id: string;
+  public shareTo: string = '';
+
   constructor(
     private route: ActivatedRoute,
     private router: Router) { }
@@ -35,5 +39,11 @@ export class SinglearticleComponent implements OnInit {
       }
     }
   }
+
+  public showShare(platform) {
+    this.shareTo = platform;
+    $('#myModal').modal('show');
+  }
+
 
 }
