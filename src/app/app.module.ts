@@ -11,12 +11,14 @@ import {  TruncatePipe }   from './limitpipe/limitpipe';
 import { SinglearticleComponent } from './singlearticle/singlearticle.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { errorPageComponent } from './404page/404page.component';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
+  { path: '', component: HomeComponent },
   { path: 'about', component: AboutComponent },
+  { path: '404', component: errorPageComponent },
   { path: 'article/:id', component: SinglearticleComponent },
-  { path: '', redirectTo: '/home', pathMatch: 'full' }
+  { path: '**', redirectTo: '/404', pathMatch: 'full' }
 ];
 
 @NgModule({
@@ -27,7 +29,8 @@ const routes: Routes = [
     TruncatePipe,
     SinglearticleComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    errorPageComponent
   ],
   imports: [
     BrowserModule,
