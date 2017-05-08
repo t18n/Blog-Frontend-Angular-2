@@ -64,8 +64,69 @@
                         <li><a href="#"><i class="fa fa-instagram"></i></a></li>
                         <li><a href="#"><i class="fa fa-envelope"></i></a></li>
                     </ul>
+                    <ul class="nav social-nav" style="margin-top:10px;">
+                        <li><button (click)="showModal()">Login</button></li>
+                        <li><button (click)="showModal()">Sign Up</button></li>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
 </header>
+<!-- Modal -->
+<div class="modal fade mycustommodal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+                    <div class="col-md-4">
+                        <form>
+                            <div id="login-form" class="form-container" data-form-container style="color: rgb(198, 40, 40); background: rgb(255, 205, 210);">
+                                <div class="row">
+                                    <div class="form-title">
+                                        <span>Login</span>
+                                    </div>
+                                </div>
+                                <div class="input-container">
+                                    <div class="row">
+                                        <span class="req-input valid email-box">
+						<span class="input-status" data-toggle="tooltip" data-placement="top" title="Input your email."> </span>
+                                        <input type="email" data-min-length="8" placeholder="Email" value="testing@gmail.com">
+                                        </span>
+                                    </div>
+                                    <div class="row">
+                                        <span class="req-input input-password invalid">
+						<span class="input-status" data-toggle="tooltip" data-placement="top" title="Password must be at least 8 characters long."> </span>
+                                        <input type="password" data-min-length="8" placeholder="Password">
+                                        </span>
+                                    </div>
+
+                                    <div class="row" style="display:none">
+                                        <span class="req-input confirm-password">
+						<span class="input-status" data-toggle="tooltip" data-placement="top" title="Password Must Match Initial Password Field."> </span>
+                                        <input type="password" data-min-length="8" placeholder="Confirm Password">
+                                        </span>
+                                    </div>
+
+                                    <div class="row">
+                                        <a class="create-account"> Create an Account </a>     <a class="forgot-password">Forgot password?</a>
+                                    </div>
+
+                                    <div class="row submit-row">
+                                        <button type="button" class="btn btn-block submit-form invalid">Login</button>
+                                    </div>
+                                    <div class="oauth-buttons">
+                                        <span>Login with:</span>
+                                        <span><i class="fa fa-facebook"></i> </span>
+                                        <span><i class="fa fa-google-plus"></i> </span>
+                                        <span><i class="fa fa-linkedin"></i> </span>
+                                        <span><i class="fa fa-twitter"></i> </span>
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+                        </form>
+            </div>
+        </div>
+    </div>
+</div>

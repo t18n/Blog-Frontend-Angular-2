@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { SUBSCRIBEDEMAILS } from './../mail/maildata'
+
+declare var $: any;
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -8,7 +11,6 @@ import { SUBSCRIBEDEMAILS } from './../mail/maildata'
 export class HeaderComponent implements OnInit {
 
   public toSubscribe: string;
-
   constructor() { }
 
   ngOnInit() {
@@ -18,6 +20,10 @@ export class HeaderComponent implements OnInit {
       email : this.toSubscribe
     });
     console.log(SUBSCRIBEDEMAILS);
+  }
+
+  showModal(){
+    $('#myModal').modal('show');
   }
   
 }
