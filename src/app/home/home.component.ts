@@ -1,19 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { HomeService } from './home.service';
 import { Article } from './../article/article';
-import { ARTICLESDATA } from './../article/articledata';
+import { ArticleService } from './../article/article.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
-  providers: [HomeService]
+  providers: [ArticleService]
 })
 export class HomeComponent implements OnInit {
 
   public articles: Article[];
+  public error: string;
 
   constructor(
-    private homeService: HomeService
+    private articleService: ArticleService
   ) { }
 
   ngOnInit() {
@@ -21,7 +21,10 @@ export class HomeComponent implements OnInit {
   }
 
   public getArticles() {
-    this.articles = JSON.parse(JSON.stringify(ARTICLESDATA));
+      this.articleService.getArticles().subscribe(
+      data => this.articles = data,
+      error => this.error = error.json().error
+    );
   }
 }
 

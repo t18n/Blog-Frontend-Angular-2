@@ -1,5 +1,5 @@
-.form-container div, .form-container  span{
-    font-family: Calibri, Candara, Segoe, 'Segoe UI', Optima, Arial, sans-serif;
+.modal-content{
+	background: transparent;
 }
 
 .form-container ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
@@ -30,19 +30,14 @@
 .row {
 	text-align:center;
 }
-#login-form{
- min-width:375px;   
-}
+/*
 .login-container{
-	width:400px;
-	height:330px;
 	display:inline-block;
-	margin-top: -165px;
     top: 50%;
     left: 50%;
     position: absolute;
     margin-left: -200px;
-}
+}*/
 .form-container .create-account:hover, .forgot-password:hover{
 	opacity:.7;
 }
@@ -90,6 +85,10 @@
 
 .oauth-buttons .fa-twitter:hover{
 	background:	#55acee;
+}
+
+.form-container{
+	color: rgb(198, 40, 40); background: rgb(255, 205, 210);	
 }
 
 .form-container .req-input .input-status {

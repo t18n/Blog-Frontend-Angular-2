@@ -46,7 +46,7 @@
                             <span class="post-author"><i>by</i><a href="#">{{article.auther}}</a></span>
                         </h5>
                         <h3 class="post-title"><a routerLink="/article/{{article.id}}">{{article.title}}</a></h3>
-                        <p>{{ article.bodytext | limitTo: 40 }}</p>
+                        <p>{{ article.content | limitTo: 40 }}</p>
                         <footer class="row">
                             <h5 class="taxonomy"><i>in</i> <a href="#">{{article.tags}}</a></h5>
                             <div class="response-count"><img src="assets/images/comment-icon-gray.png" alt="">{{article.numcomments}}</div>

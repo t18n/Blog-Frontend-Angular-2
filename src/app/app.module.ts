@@ -1,17 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Injectable } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
+import { HttpModule, XHRBackend, RequestOptions, BaseRequestOptions, Headers, RequestOptionsArgs } from '@angular/http';
 
+import { HttpClient } from './HttpClient';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
-import {  TruncatePipe }   from './limitpipe/limitpipe';
+import { TruncatePipe } from './limitpipe/limitpipe';
 import { SinglearticleComponent } from './singlearticle/singlearticle.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { errorPageComponent } from './404page/404page.component';
+
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -38,7 +40,7 @@ const routes: Routes = [
     HttpModule,
     RouterModule.forRoot(routes)
   ],
-  exports: [ RouterModule ],
+  exports: [RouterModule],
   providers: [],
   bootstrap: [AppComponent]
 })

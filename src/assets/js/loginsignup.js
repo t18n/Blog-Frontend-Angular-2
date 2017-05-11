@@ -39,32 +39,66 @@ $(function () {
             $(".confirm-password").parent().slideUp(function () {
                 validate($(this).closest("[data-form-container]"));
             });
+            if ($(".email-forgot").is(":visible")) {
+                $(".email-forgot").parent().slideUp(function () {
+                    validate($(this).closest("[data-form-container]"));
+                });
+            }
+
         } else {
             $(this).closest("[data-form-container]").find(".submit-form").text("Create Account");
             $(this).text("Already Have an Account");
             $(".confirm-password").parent().slideDown(function () {
                 validate($(this).closest("[data-form-container]"));
             });
+            $(".email-box").parent().slideDown(function () {
+                validate($(this).closest("[data-form-container]"));
+            });
+            $(".input-password").parent().slideDown(function () {
+                validate($(this).closest("[data-form-container]"));
+            });
+            if ($(".email-forgot").is(":visible")) {
+                $(".email-forgot").parent().slideUp(function () {
+                    validate($(this).closest("[data-form-container]"));
+                });
+            }
+            $(".forgot-password").text("Forgot password?");
         }
 
     });
 
-    // $(".create-account").on('click', function () {
-    //     if ($(".email-box").is(":hidden")) {
-    //         $(this).text("Got your password");
-    //         $(this).closest("[data-form-container]").find(".submit-form").text("Login");
-    //         $(".confirm-password").parent().slideUp(function () {
-    //             validate($(this).closest("[data-form-container]"));
-    //         });
-    //     } else {
-    //         $(this).closest("[data-form-container]").find(".submit-form").text("Create Account");
-    //         $(this).text("Already Have an Account");
-    //         $(".confirm-password").parent().slideDown(function () {
-    //             validate($(this).closest("[data-form-container]"));
-    //         });
-    //     }
+    $(".forgot-password").on('click', function () {
+        if ($(".email-forgot").is(":visible")) {
+            $(this).text("Forgot password?");
+            $(this).closest("[data-form-container]").find(".submit-form").text("Login");
+            $(".email-forgot").parent().slideUp(function () {
+                validate($(this).closest("[data-form-container]"));
+            });
+            $(".email-box").parent().slideDown(function () {
+                validate($(this).closest("[data-form-container]"));
+            });
+            $(".input-password").parent().slideDown(function () {
+                validate($(this).closest("[data-form-container]"));
+            });
+        } else {
+            $(this).closest("[data-form-container]").find(".submit-form").text("Forgot password?");
+            $(this).text("Remember your password?");
+            $(".email-box").parent().slideUp(function () {
+                validate($(this).closest("[data-form-container]"));
+            });
+            $(".input-password").parent().slideUp(function () {
+                validate($(this).closest("[data-form-container]"));
+            });
+            $(".confirm-password").parent().slideUp(function () {
+                validate($(this).closest("[data-form-container]"));
+            });
+            $(".email-forgot").parent().slideDown(function () {
+                validate($(this).closest("[data-form-container]"));
+            });
+            $(".create-account").text(" Create an Account ");
+        }
 
-    // });
+    });
 
     $("[data-toggle='tooltip']").on("mouseover", function () {
         console.log($(this).parent().attr("class"));
