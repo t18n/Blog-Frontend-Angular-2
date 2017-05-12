@@ -31,13 +31,13 @@ export class SinglearticleComponent implements OnInit {
   }
 
   public getArticle() {
-    for (var i = 0; i < ARTICLESDATA.length; ++i) {
-      if (ARTICLESDATA[i].id === this.content_id) {
-        this.article = ARTICLESDATA[i];
-        this.articlePrev = ARTICLESDATA[i - 1];
-        this.articleNext = ARTICLESDATA[i + 1];
-      }
-    }
+    // for (var i = 0; i < ARTICLESDATA.length; ++i) {
+    //   if (ARTICLESDATA[i].id === this.content_id) {
+    //     this.article = ARTICLESDATA[i];
+    //     this.articlePrev = ARTICLESDATA[i - 1];
+    //     this.articleNext = ARTICLESDATA[i + 1];
+    //   }
+    // }
   }
 
   public showShare(platform) {

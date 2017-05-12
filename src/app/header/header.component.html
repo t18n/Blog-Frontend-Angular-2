@@ -1,141 +1,152 @@
-<header style="top:0;" class="row transparent black header1" data-spy="affix" data-offset-top="0" id="header">
-    <div class="container">
-        <div class="row top-header">
-            <div class="col-sm-4 search-form-col">
-                <form action="#" method="get" class="search-form">
-                    <div class="input-group">
-                        <span class="input-group-addon"><img src="assets/images/search-icon-white.png" alt=""></span>
-                        <input type="search" class="form-control" placeholder="search">
-                    </div>
-                </form>
-            </div>
-            <div class="col-sm-4 logo-col text-center">
-                <a href="index.html"><img src="../assets/images/sowable_logo_sm.png" width="200" height="90" alt=""></a>
-            </div>
-            <div class="col-sm-4 menu-trigger-col">
-                <button class="menu-trigger pull-right">
-                    <span class="active-page">home</span>
-                    <img src="assets/images/menu-align-white.png" alt="" class="icon-burger">
-                    <img src="assets/images/menu-close-white.png" alt="" class="icon-cross">
-                </button>
-            </div>
-        </div>
-    </div>
-    <div class="row menu-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-8 menu-col">
-                    <div class="row">
-                        <ul class="nav column-menu black-bg">
-                            <li class="active dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Home <span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="index.html">Home Option 1</a></li>
-                                    <li><a href="index2.html">Home Option 2</a></li>
-                                    <li><a href="index3.html">Home Option 3</a></li>
-                                    <li><a href="index4.html">Home Option 4</a></li>
-                                    <li><a href="index5.html">Home Option 5</a></li>
-                                    <li><a href="index6.html">Home Option 6</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="about.html">About</a></li>
-                            <li><a href="#">categories</a></li>
-                            <li><a href="#">archives</a></li>
-                        </ul>
-                        <ul class="nav column-menu black-bg">
-                            <li><a href="#">Products</a></li>
-                            <li><a href="#">faq</a></li>
-                            <li><a href="contact.html">contact</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-sm-4 subscribe-col">
-                    <h5 class="widget-title">subscribe to our newsletter.</h5>
-                    <form action="#" method="post" class="form-inline subscribe-form">
-                        <div class="form-group">
-                            <input type="email" [(ngModel)]="toSubscribe" name="emailToSubscribe" class="form-control" placeholder="Email">
-                        </div>
-                        <button type="submit" (click)="subscribeEmail()" class="btn btn-primary btn-sm"><span>send</span></button>
-                    </form>
-                    <ul class="nav social-nav dark">
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-facebook-official"></i></a></li>
-                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                        <li><a href="#"><i class="fa fa-envelope"></i></a></li>
-                    </ul>
-                    <ul class="nav social-nav" style="margin-top:10px;">
-                        <li><button (click)="showModal()">Login</button></li>
-                        <li><button (click)="showModal()">Sign Up</button></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-<!-- Modal -->
-<div class="modal fade mycustommodal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-                <div>
-                    <form>
-                        <div id="login-form" class="form-container" data-form-container>
-                            <div class="row">
-                                <div class="form-title">
-                                    <span>Login</span>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                                </button>
-                                </div>
-                            </div>
-                            <div class="input-container">
-                                <div class="row" style="display:none">
-                                    <span class="req-input valid email-forgot">
-						<span class="input-status" data-toggle="tooltip" data-placement="top" title="Input your email."> </span>
-                                    <input type="email" data-min-length="8" placeholder="Email for password">
-                                    </span>
-                                </div>
-                                <div class="row">
-                                    <span class="req-input valid email-box">
-						<span class="input-status" data-toggle="tooltip" data-placement="top" title="Input your email."> </span>
-                                    <input type="email" data-min-length="8" placeholder="Email" value="testing@gmail.com">
-                                    </span>
-                                </div>
-                                <div class="row">
-                                    <span class="req-input input-password invalid">
-						<span class="input-status" data-toggle="tooltip" data-placement="top" title="Password must be at least 8 characters long."> </span>
-                                    <input type="password" data-min-length="8" placeholder="Password">
-                                    </span>
-                                </div>
+	<!--=== Header ===-->
+	<div class="header-fixed">
+		<div class="wrapper">
+			<!--=== Header v2 ===-->
+			<div class="header-v2 header-sticky">
+				<div class="container container-space">
+					<!-- Topbar v2 -->
+					<div class="topbar-v2">
+						<div class="row">
+							<div class="col-sm-8">
+								<ul class="list-inline top-v2-contacts">
+									<li>Email: 
+										<a href="mailto:admin@sowable.com">admin@sowable.com</a>
+									</li>
+									<li>
+										<div class="language-bar">
+											<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+												<span class="heading">Languages</span>
+											</a>
+											<ul class="languages-dropdown" role="menu">
+												<li class="active">
+													<a href="#">English</a>
+												</li>
+											</ul>
+										</div>
+									</li>
+								</ul>
+							</div>
+							<div class="col-sm-4">
+								<div class="topbar-buttons pull-right">
+									<a href="page_login.html" class="btn-u btn-brd btn-brd-hover btn-u-light margin-right-5">
+										Sign In
+									</a>
+									<a href="page_registration.html" class="btn-u">Sign Up
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- End Topbar v2 -->
+				</div>
 
-                                <div class="row" style="display:none">
-                                    <span class="req-input confirm-password">
-						<span class="input-status" data-toggle="tooltip" data-placement="top" title="Password Must Match Initial Password Field."> </span>
-                                    <input type="password" data-min-length="8" placeholder="Confirm Password">
-                                    </span>
-                                </div>
+				<!-- Navbar -->
+				<div class="navbar navbar-default mega-menu" role="navigation">
+					<div class="container container-space">
+						<!-- Brand and toggle get grouped for better mobile display -->
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="fa fa-bars"></span>
+							</button>
+							<a class="navbar-brand brand-style" href="index.html">
+								<img id="logo-header" src="assets/img/Sowable_150_ppi.png" width="85" height="32" alt="Logo">
+							</a>
+						</div>
 
-                                <div class="row">
-                                    <a class="create-account pull-left"> Create an Account </a>
-                                    <a class="forgot-password pull-right">Forgot password?</a>
-                                </div>
+						<!-- Collect the nav links, forms, and other content for toggling -->
+						<div class="collapse navbar-collapse navbar-responsive-collapse">
+							<ul class="nav navbar-nav">
+								<!-- Home -->
+								<li class="dropdown">
+									<a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+										Health
+									</a>
+									<ul class="dropdown-menu">
+										<li>
+											<a href="index.html">Phisical Health</a>
+										</li>
 
-                                <div class="row submit-row">
-                                    <button type="button" class="btn btn-block submit-form invalid">Login</button>
-                                </div>
-                                <div class="oauth-buttons">
-                                    <span>Login with:</span>
-                                    <span><i class="fa fa-facebook"></i> </span>
-                                    <span><i class="fa fa-google-plus"></i> </span>
-                                    <span><i class="fa fa-linkedin"></i> </span>
-                                    <span><i class="fa fa-twitter"></i> </span>
-                                </div>
+										<!-- One Page -->
+										<li class="dropdown-submenu">
+											<a href="javascript:void(0);">Knowledge</a>
+											<ul class="dropdown-menu">
+												<li>
+													<a target="_blank" href="One-Pages/Classic/index.html">
+														Book reading
+													</a>
+												</li>
+												<li>
+													<a target="_blank" href="One-Pages/Classic/one_page_dark.html">
+														Mentor
+													</a>
+												</li>
+											</ul>
+										</li>
+										<!-- End One Page -->
+									</ul>
+								</li>
 
+															<!-- Shortcodes -->
+							<li class="dropdown mega-menu-fullwidth">
+								<a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+									Shortcodes
+								</a>
+								<ul class="dropdown-menu">
+									<li>
+										<div class="mega-menu-content disable-icons">
+											<div class="container">
+												<div class="row equal-height">
+													<div class="col-md-3 equal-height-in">
+														<ul class="list-unstyled equal-height-list">
+															<li><h3>Typography &amp; Components</h3></li>
 
-                            </div>
-                        </div>
+															<!-- Typography -->
+															<li><a href="shortcode_typo_general.html"><i class="fa fa-sort-alpha-asc"></i> General Typography</a></li>
+															<li><a href="shortcode_typo_headings.html"><i class="fa fa-magic"></i> Headings Options</a></li>
+															<!-- End Components -->
+														</ul>
+													</div>
+													<div class="col-md-3 equal-height-in">
+														<ul class="list-unstyled equal-height-list">
+															<li><h3>Buttons &amp; Icons</h3></li>
 
-                    </form>
-                </div></div>
-    </div>
-</div>
+															<!-- Buttons -->
+															<li><a href="shortcode_btn_general.html"><i class="fa fa-flask"></i> General Buttons</a></li>
+															<li><a href="shortcode_btn_brands.html"><i class="fa fa-html5"></i> Brand &amp; Social Buttons</a></li>
+															<li><a href="shortcode_btn_effects.html"><i class="fa fa-bolt"></i> Loading &amp; Hover Effects</a></li>
+															<!-- End Buttons -->
+
+															<!-- Icons -->
+															<li><a href="shortcode_icon_general.html"><i class="fa fa-chevron-circle-right"></i> General Icons</a></li>
+															<li><a href="shortcode_icon_fa.html"><i class="fa fa-chevron-circle-right"></i> Font Awesome Icons</a></li>
+															<!-- End Icons -->
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</li>
+							<!-- End Shortcodes -->
+							</ul>
+						</div><!--/navbar-collapse-->
+					</div>
+				</div>
+				<!-- End Navbar -->
+			</div>
+			<!--=== End Header v2 ===-->
+
+			<!-- Interactive Slider v2 -->
+			<div class="interactive-slider-v2">
+				<div class="container">
+					<h1>Welcome to Sowable</h1>
+					<p>A worthy life is sowable</p>
+				</div>
+			</div>
+			<!-- End Interactive Slider v2 -->
+
+		</div><!--/wrapper-->
+	</div>
+	<!--=== End Header ===-->

@@ -11,10 +11,15 @@ declare var $: any;
 export class HeaderComponent implements OnInit {
 
   public toSubscribe: string;
+  public checkhome: any;
   constructor() { }
 
   ngOnInit() {
+    this.checkhome = document.getElementsByClassName('showthisheader').length;
+    console.log(this.checkhome);
   }
+
+  
   public subscribeEmail(){
     SUBSCRIBEDEMAILS.push({
       email : this.toSubscribe
@@ -22,10 +27,6 @@ export class HeaderComponent implements OnInit {
     console.log(SUBSCRIBEDEMAILS);
   }
 
-  showModal(){
-    $('#myModal').modal('show');
-  }
-  
 }
 
 

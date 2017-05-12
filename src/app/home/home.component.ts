@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Article } from './../article/article';
+//import { Article } from './../article/article';
 import { ArticleService } from './../article/article.service';
 @Component({
   selector: 'app-home',
@@ -9,7 +9,8 @@ import { ArticleService } from './../article/article.service';
 })
 export class HomeComponent implements OnInit {
 
-  public articles: Article[];
+  //public articles: Article[];
+  public articles: any;
   public error: string;
 
   constructor(
