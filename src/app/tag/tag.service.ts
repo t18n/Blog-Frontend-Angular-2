@@ -7,18 +7,13 @@ import 'rxjs/add/operator/catch';
 import {environment} from '../../environments/environment';
 
 @Injectable()
-export class ArticleService { 
+export class TagService { 
 constructor(private http: Http) { }
   /**
-   * Gets the list of all articles
+   * Gets the list of all tag
    */
-  public getArticles() {
-   return this.http.get(environment.apiRoute + 'posts')
-      .map(res => res.json());
-  }
-
-  public getArticle(id){
-   return this.http.get( environment.apiRoute + 'posts/' + id)
+  public getTags() {
+   return this.http.get( environment.apiRoute + 'tags')
       .map(res => res.json());
   }
 }

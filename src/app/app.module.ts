@@ -10,9 +10,11 @@ import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { TruncatePipe } from './limitpipe/limitpipe';
 import { SinglearticleComponent } from './singlearticle/singlearticle.component';
-import { HeaderComponent } from './header/header.component';
+import { HeaderPrimaryComponent } from './header-primary/header-primary.component';
 import { FooterComponent } from './footer/footer.component';
 import { errorPageComponent } from './404page/404page.component';
+import { HeaderSecondaryComponent } from './header-secondary/header-secondary.component';
+import { TagComponent } from './tag/tag.component';
 
 
 const routes: Routes = [
@@ -30,9 +32,11 @@ const routes: Routes = [
     AboutComponent,
     TruncatePipe,
     SinglearticleComponent,
-    HeaderComponent,
+    HeaderPrimaryComponent,
     FooterComponent,
-    errorPageComponent
+    errorPageComponent,
+    HeaderSecondaryComponent,
+    TagComponent
   ],
   imports: [
     BrowserModule,

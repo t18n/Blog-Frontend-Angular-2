@@ -1,5 +1,6 @@
-
-<div class="wrapper showthisheader">
+<header-primary></header-primary>
+<div class="wrapper">
+	<!--=== Content Part ===-->
 	<div class="container content">
 		<div class="row magazine-page">
 			<!-- Begin Content -->
@@ -29,133 +30,49 @@
 
 					<div class="carousel-arrow">
 						<a data-slide="prev" href="#myCarousel-1" class="left carousel-control">
-							<i class="fa fa-angle-left"></i>
-						</a>
+								<i class="fa fa-angle-left"></i>
+							</a>
 						<a data-slide="next" href="#myCarousel-1" class="right carousel-control">
-							<i class="fa fa-angle-right"></i>
-						</a>
+								<i class="fa fa-angle-right"></i>
+							</a>
 					</div>
 				</div>
 				<!-- End Magazine Slider -->
 
 				<!-- Magazine News -->
+
 				<div class="magazine-news">
-					<div class="row">
-						<div class="col-md-6">
-							<div class="magazine-news-img">
-								<a href="#"><img class="img-responsive" src="assets/img/main/img1.jpg" alt=""></a>
-								<span class="magazine-badge label-red">Travel</span>
-							</div>
-							<h3><a href="#">Simelque Untine Culpaqui Officia Deserunt Blanditiis Praesentium</a></h3>
-							<div class="by-author">
-								<strong>By Jack Villo</strong>
-								<span>/ September 19, 2013</span>
-							</div>
-							<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti
-								quos dolores et quas molestias excepturi sint occaecati cupiditate...</p>
+
+					<div class="col-md-6" *ngFor="let article of articles | slice:sliceStart:sliceEnd; let j =index">
+						<div class="magazine-news-img">
+							<a href="#"><img class="img-responsive" src="assets/img/main/img.jpg" alt=""></a>
+							<span class="magazine-badge label-red">{{article.category_id}}</span>
 						</div>
-						<div class="col-md-6">
-							<div class="magazine-news-img">
-								<a href="#"><img class="img-responsive" src="assets/img/main/img2.jpg" alt=""></a>
-								<span class="magazine-badge label-blue">Event</span>
-							</div>
-							<h3><a href="#">Simelque Untine Culpaqui Officia Deserunt Blanditiis Praesentium</a></h3>
-							<div class="by-author">
-								<strong>By Admin</strong>
-								<span>/ September 19, 2013</span>
-							</div>
-							<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti
-								quos dolores et quas molestias excepturi sint occaecati cupiditate...</p>
+						<h3><a routerLink="/article/{{article.id}}">{{article.title}}</a></h3>
+						<div class="by-author">
+							<strong>By {{article.author_id}}</strong>
+							<span>/ {{article.updated_at | date:'medium'}}</span>
 						</div>
+						<p>{{article.content | limitTo:'150'}}</p>
 					</div>
+
+					<div class="margin-bottom-35">
+						<hr class="hr-md">
+					</div>
+
 				</div>
 				<!-- End Magazine News -->
 
-				<div class="margin-bottom-35">
-					<hr class="hr-md">
-				</div>
 
-				<!-- Magazine News -->
-				<div class="magazine-news">
-					<div class="row">
-						<div class="col-md-6">
-							<div class="magazine-news-img">
-								<a href="#"><img class="img-responsive" src="assets/img/main/img26.jpg" alt=""></a>
-								<span class="magazine-badge label-yellow">Media</span>
-							</div>
-							<h3><a href="#">Simelque Untine Culpaqui Officia Deserunt Blanditiis Praesentium</a></h3>
-							<div class="by-author">
-								<strong>By Jack Villo</strong>
-								<span>/ September 19, 2013</span>
-							</div>
-							<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti
-								quos dolores et quas molestias excepturi sint occaecati cupiditate...</p>
-						</div>
-						<div class="col-md-6">
-							<div class="magazine-news-img">
-								<a href="#"><img class="img-responsive" src="assets/img/main/img24.jpg" alt=""></a>
-								<span class="magazine-badge label-green">Relax</span>
-							</div>
-							<h3><a href="#">Simelque Untine Culpaqui Officia Deserunt Blanditiis Praesentium</a></h3>
-							<div class="by-author">
-								<strong>By Admin</strong>
-								<span>/ September 19, 2013</span>
-							</div>
-							<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti
-								quos dolores et quas molestias excepturi sint occaecati cupiditate...</p>
-						</div>
-					</div>
-				</div>
-				<!-- End Magazine News -->
-
-				<div class="margin-bottom-35">
-					<hr class="hr-md">
-				</div>
-
-				<!-- Magazine News -->
-				<div class="magazine-news">
-					<div class="row">
-						<div class="col-md-6">
-							<div class="magazine-news-img">
-								<a href="#"><img class="img-responsive" src="assets/img/main/img3.jpg" alt=""></a>
-								<span class="magazine-badge label-purple">Design</span>
-							</div>
-							<h3><a href="#">Simelque Untine Culpaqui Officia Deserunt Blanditiis Praesentium</a></h3>
-							<div class="by-author">
-								<strong>By Jack Villo</strong>
-								<span>/ September 19, 2013</span>
-							</div>
-							<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti
-								quos dolores et quas molestias excepturi sint occaecati cupiditate...</p>
-						</div>
-						<div class="col-md-6">
-							<div class="magazine-news-img">
-								<a href="#"><img class="img-responsive" src="assets/img/main/img16.jpg" alt=""></a>
-								<span class="magazine-badge label-dark-blue">Interior</span>
-							</div>
-							<h3><a href="#">Simelque Untine Culpaqui Officia Deserunt Blanditiis Praesentium</a></h3>
-							<div class="by-author">
-								<strong>By Admin</strong>
-								<span>/ September 19, 2013</span>
-							</div>
-							<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti
-								quos dolores et quas molestias excepturi sint occaecati cupiditate...</p>
-						</div>
-					</div>
-				</div>
-				<!-- End Magazine News -->
 
 				<div class="text-center">
 					<ul class="pagination">
-						<li><a href="#">«</a></li>
-						<li><a href="#">1</a></li>
-						<li><a href="#">2</a></li>
-						<li><a href="#">3</a></li>
-						<li class="active"><a href="#">4</a></li>
-						<li><a href="#">5</a></li>
-						<li><a href="#">6</a></li>
-						<li><a href="#">7</a></li>
-						<li><a href="#">»</a></li>
+						<li>
+							<a href="#">
+								<<</a>
+						</li>
+						<li (click)="changePage(i)" *ngFor="let page of numOfPages; let i = index"><a>{{i+1}}</a></li>
+						<li><a href="#">>></a></li>
 					</ul>
 				</div>
 			</div>
@@ -169,7 +86,7 @@
 						<h3><a href="#">Bootstrap 3 Template</a></h3>
 						<span><i class="color-green">By htmlstream</i> / March 19, 2014</span>
 						<div class="magazine-posts-img">
-							<a href="#"><img class="img-responsive" src="assets/img/main/img7.jpg" alt=""></a>
+							<a href="#"><img class="img-responsive" src="assets/img/main/img.jpg" alt=""></a>
 							<span class="magazine-badge magazine-badge-red">Music</span>
 						</div>
 					</div>
@@ -177,7 +94,7 @@
 						<h3><a href="#">Parralax One Page</a></h3>
 						<span><i class="color-green">By Taylor Miller</i> / July 19, 2014</span>
 						<div class="magazine-posts-img">
-							<a href="#"><img class="img-responsive" src="assets/img/main/img8.jpg" alt=""></a>
+							<a href="#"><img class="img-responsive" src="assets/img/main/img.jpg" alt=""></a>
 							<span class="magazine-badge magazine-badge-green">Fashion</span>
 						</div>
 					</div>
@@ -215,30 +132,14 @@
 					<h2 class="heading-sm">Photo Stream</h2>
 				</div>
 				<ul class="list-unstyled blog-photos margin-bottom-35">
-					<li>
-						<a href="#"><img class="hover-effect" alt="" src="assets/img/sliders/elastislide/5.jpg"></a>
-					</li>
-					<li>
-						<a href="#"><img class="hover-effect" alt="" src="assets/img/sliders/elastislide/6.jpg"></a>
-					</li>
-					<li>
-						<a href="#"><img class="hover-effect" alt="" src="assets/img/sliders/elastislide/8.jpg"></a>
-					</li>
-					<li>
-						<a href="#"><img class="hover-effect" alt="" src="assets/img/sliders/elastislide/10.jpg"></a>
-					</li>
-					<li>
-						<a href="#"><img class="hover-effect" alt="" src="assets/img/sliders/elastislide/11.jpg"></a>
-					</li>
-					<li>
-						<a href="#"><img class="hover-effect" alt="" src="assets/img/sliders/elastislide/1.jpg"></a>
-					</li>
-					<li>
-						<a href="#"><img class="hover-effect" alt="" src="assets/img/sliders/elastislide/2.jpg"></a>
-					</li>
-					<li>
-						<a href="#"><img class="hover-effect" alt="" src="assets/img/sliders/elastislide/7.jpg"></a>
-					</li>
+					<li><a href="#"><img class="hover-effect" alt="" src="assets/img/sliders/elastislide/5.jpg"></a></li>
+					<li><a href="#"><img class="hover-effect" alt="" src="assets/img/sliders/elastislide/6.jpg"></a></li>
+					<li><a href="#"><img class="hover-effect" alt="" src="assets/img/sliders/elastislide/8.jpg"></a></li>
+					<li><a href="#"><img class="hover-effect" alt="" src="assets/img/sliders/elastislide/10.jpg"></a></li>
+					<li><a href="#"><img class="hover-effect" alt="" src="assets/img/sliders/elastislide/11.jpg"></a></li>
+					<li><a href="#"><img class="hover-effect" alt="" src="assets/img/sliders/elastislide/1.jpg"></a></li>
+					<li><a href="#"><img class="hover-effect" alt="" src="assets/img/sliders/elastislide/2.jpg"></a></li>
+					<li><a href="#"><img class="hover-effect" alt="" src="assets/img/sliders/elastislide/7.jpg"></a></li>
 				</ul>
 				<!-- End Photo Stream -->
 
@@ -279,3 +180,4 @@
 	<!--/container-->
 	<!-- End Content Part -->
 </div>
+<!--/wrapper-->

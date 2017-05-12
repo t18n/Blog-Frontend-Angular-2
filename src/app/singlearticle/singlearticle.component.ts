@@ -1,26 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { Article } from './../article/article';
-import { ARTICLESDATA } from './../article/articledata';
+import { ArticleService } from './../article/article.service';
 
 declare var $: any;
 
 @Component({
   selector: 'app-singlearticle',
   templateUrl: './singlearticle.component.html',
-  styleUrls: ['./singlearticle.component.css']
+  styleUrls: ['./singlearticle.component.css'],
+  providers: [ArticleService]
 })
 export class SinglearticleComponent implements OnInit {
 
-  public article: Article;
-  public articlePrev: Article;
-  public articleNext: Article;
+  public article: Article = new Article();
   public content_id: string;
-  public shareTo: string = '';
-
+  public error: string = '';
   constructor(
     private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router,
+    private articleService: ArticleService) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -31,19 +30,11 @@ export class SinglearticleComponent implements OnInit {
   }
 
   public getArticle() {
-    // for (var i = 0; i < ARTICLESDATA.length; ++i) {
-    //   if (ARTICLESDATA[i].id === this.content_id) {
-    //     this.article = ARTICLESDATA[i];
-    //     this.articlePrev = ARTICLESDATA[i - 1];
-    //     this.articleNext = ARTICLESDATA[i + 1];
-    //   }
-    // }
+    this.articleService.getArticle(this.content_id).subscribe(
+      data => {
+        this.article = data;
+        error => this.error = error.json().error;
+      }
+    );
   }
-
-  public showShare(platform) {
-    this.shareTo = platform;
-    $('#myModal').modal('show');
-  }
-
-
 }

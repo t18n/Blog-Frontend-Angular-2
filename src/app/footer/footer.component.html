@@ -4,7 +4,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-3 col-sm-6 column-one md-margin-bottom-50">
-                    <a href="index.html"><img class="footer-logo" src="assets/img/sowable_white_70ppi.png" alt=""></a>
+                    <a href="index.html"><img class="footer-logo" src="./../../assets/img/sowable/logo_white_70ppi.png" alt=""></a>
                     <p class="margin-bottom-20">Sowable transform lifes</p>
 
                     <span>Email Address:</span>
@@ -15,16 +15,7 @@
                     <h2>Tags</h2>
                     <!-- Tag Links v4 -->
                     <ul class="tags-v4 margin-bottom-40">
-                        <li><a class="rounded-4x" href="#">java</a></li>
-                        <li><a class="rounded-4x" href="#">featured</a></li>
-                        <li><a class="rounded-4x" href="#">pattern</a></li>
-                        <li><a class="rounded-4x" href="#">web</a></li>
-                        <li><a class="rounded-4x" href="#">fashion</a></li>
-                        <li><a class="rounded-4x" href="#">wrapbootstrap</a></li>
-                        <li><a class="rounded-4x" href="#">css3</a></li>
-                        <li><a class="rounded-4x" href="#">foto</a></li>
-                        <li><a class="rounded-4x" href="#">google</a></li>
-                        <li><a class="rounded-4x" href="#">html5</a></li>
+                        <li *ngFor="let tag of tags"><a class="rounded-4x" href="#">{{tag.name}}</a></li>
                     </ul>
                     <!-- End Tag Links v4 -->
 
@@ -44,7 +35,7 @@
                     <h2>Latest News</h2>
                     <!-- Latest News -->
                     <div class="latest-news margin-bottom-20">
-                        <img src="assets/img/thumb/01.jpg" alt="">
+                        <img src="./../../assets/img/thumb/01.jpg" alt="">
                         <h3><a href="#">Standard post with video.</a></h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                     </div>
@@ -52,7 +43,7 @@
                     <hr>
 
                     <div class="latest-news margin-bottom-20">
-                        <img src="assets/img/thumb/02.jpg" alt="">
+                        <img src="./../../assets/img/thumb/02.jpg" alt="">
                         <h3><a href="#">Standard post with video.</a></h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                     </div>
@@ -60,7 +51,7 @@
                     <hr>
 
                     <div class="latest-news">
-                        <img src="assets/img/thumb/01.jpg" alt="">
+                        <img src="./../../assets/img/thumb/01.jpg" alt="">
                         <h3><a href="#">Standard post with video.</a></h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                     </div>
