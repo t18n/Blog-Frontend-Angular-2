@@ -1,3 +1,7 @@
+.background{
+  background:url(./../../assets/img/error/error-v5.jpg) center no-repeat;
+}
+@import url("./../../assets/css/pages/page_404_error4.css");
     .center {
       text-align: center;
       margin-left: auto;

@@ -1,64 +1,46 @@
+<div class="background">
+<!--=== Error V5 ===-->
 
-  <div style="padding-top:200px;" class="container">
-    <div class="row">
-      <div class="span12">
-        <div class="hero-unit center">
-          <h1>Page Not Found <small><font face="Tahoma" color="red">Error 404</font></small></h1>
-          <br />
-          <p>The page you requested could not be found, either contact your webmaster or try again. Use your browsers <b>Back</b>            button to navigate to the page you have prevously come from</p>
-          <p><b>Or you could just press this neat little button:</b></p>
-          <a routerLink="/" class="btn btn-large btn-info btn-mid"><i class="icon-home icon-white"></i> Take Me Home</a>
-        </div>
-        <br />
-        <div class="thumbnail">
-          <div>
-            <h2>Recommended reading :</h2>
+<div class="container valign__middle">
+  <!--Error Block-->
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="error-v5">
+        <a class="logo-a" href="#"><img alt="" src="./../../assets/img/sowable/logo_white_150ppi.png" class="logo"></a>
+        <h1>That's an error!</h1>
+        <span class="sorry">The requested URL was not found on this server.<br> That's all we know.</span>
+        <img class="error-img" src="./../../assets/img/error/error-404-v5.png" alt="error">
+        <form>
+          <div class="input-group col-md-12">
+            <input type="text" class="form-control" placeholder="Try to find something">
+            <span class="input-group-btn">
+								<button class="btn-u" type="button">Search</button>
+							</span>
           </div>
-        </div>
-        <br />
-        <div class="thumbnail span3 center">
-          <h3>Try This...</h3>
-          <p>write about your error page conent here and give some fool a good load of information or not</p>
-          <div class="hero-unit">
-            <img src="http://placehold.it/100x100">
-            <!--Why Not Put a Picture To Celebrate Your 404-->
-            <p></p>
-          </div>
-          <a href="#" class="btn btn-danger btn-large"><i class="icon-share icon-white"></i> Take Me There...</a>
-        </div>
-        <div class="thumbnail span3 center">
-          <h3>Try This...</h3>
-          <p>write about your error page conent here and give some fool a good load of information or not</p>
-          <div class="hero-unit">
-            <img src="http://placehold.it/100x100">
-            <!--Why Not Put a Picture To Celebrate Your 404-->
-            <p></p>
-          </div>
-          <a href="#" class="btn btn-danger btn-large"><i class="icon-share icon-white"></i> Take Me There...</a>
-        </div>
-        <div class="thumbnail span3 center">
-          <h3>Try This...</h3>
-          <p>write about your error page conent here and give some fool a good load of information or not</p>
-          <div class="hero-unit">
-            <img src="http://placehold.it/100x100">
-            <!--Why Not Put a Picture To Celebrate Your 404-->
-            <p></p>
-          </div>
-          <a href="#" class="btn btn-danger btn-large"><i class="icon-share icon-white"></i> Take Me There...</a>
-        </div>
-        <div class="thumbnail span3 center">
-          <h3>Try This...</h3>
-          <p>write about your error page conent here and give some fool a good load of information or not</p>
-          <div class="hero-unit">
-            <img src="http://placehold.it/100x100">
-            <!--Why Not Put a Picture To Celebrate Your 404-->
-            <p></p>
-          </div>
-          <a href="#" class="btn btn-danger btn-large"><i class="icon-share icon-white"></i> Take Me There...</a>
-        </div>
-        <br />
-        <p></p>
-        <!-- By ConnerT HTML & CSS Enthusiast -->
+          <!-- /input-group -->
+        </form>
+        <br>
+        <span><a href="#">Back home</a></span>
       </div>
     </div>
   </div>
+</div>
+<!--/container-->
+<!--End Error Block-->
+
+<!--=== Sticky Footer ===-->
+<div class="container sticky-footer">
+  <p class="copyright-space">
+    2017 &copy; All Rights Reserved. Sowable by <a href="http://htmlstream.com/" target="_blank" class="color-green">Sowable Team</a>
+  </p>
+</div>
+</div>
+<!--=== End Sticky Footer ===-->
+	<script>
+		jQuery(document).ready(function() {
+			App.init();
+		});
+		$.backstretch([
+			"./../../assets/img/error/error-v5.jpg"
+			])
+	</script>

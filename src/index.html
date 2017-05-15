@@ -40,11 +40,15 @@
 
 	<!-- CSS Page Style -->
 	<link rel="stylesheet" href="assets/css/pages/blog_magazine.css">
+	<link rel="stylesheet" href="assets/css/pages/profile.css">
+	<link rel="stylesheet" href="assets/plugins/scrollbar/css/jquery.mCustomScrollbar.css">
+	<link rel="stylesheet" href="assets/plugins/sky-forms-pro/skyforms/css/sky-forms.css">
+	<link rel="stylesheet" href="assets/plugins/sky-forms-pro/skyforms/custom/custom-sky-forms.css">
+
 
 	<!-- CSS Theme -->
 	<link rel="stylesheet" href="assets/css/theme-colors/blue.css" id="style_color">
 	<link rel="stylesheet" href="assets/css/theme-skins/dark.css">
-
 	<!-- CSS Customization -->
 	<link rel="stylesheet" href="assets/css/custom.css">
 </head>
@@ -64,10 +68,22 @@
 <!-- JS Implementing Plugins -->
 <script type="text/javascript" src="assets/plugins/back-to-top.js"></script>
 <script type="text/javascript" src="assets/plugins/smoothScroll.js"></script>
+<script src="assets/plugins/backstretch/jquery.backstretch.min.js"></script>
 <!-- JS Customization -->
 <script type="text/javascript" src="assets/js/custom.js"></script>
 <!-- JS Page Level -->
 <script type="text/javascript" src="assets/js/app.js"></script>
+
+		<script>
+		$(".forms-wrapper-login").backstretch([
+			"assets/img/bg/6.jpg",
+			"assets/img/bg/5.jpg",
+			"assets/img/bg/7.jpg",
+			], {
+				fade: 1000,
+				duration: 7000
+			});
+		</script>
 
 <!--[if lt IE 9]>
 	<script src="assets/plugins/respond.js"></script>
