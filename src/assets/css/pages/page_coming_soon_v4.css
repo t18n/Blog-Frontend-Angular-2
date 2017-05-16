@@ -12,7 +12,7 @@ body {
 ------------------------------------*/
 /* Top */
 .bg-top {
-	background: url(../../img/bg/4.jpg) no-repeat scroll center center / cover;
+	background: url(./../../img/bg/4.jpg) no-repeat scroll center center / cover;
 	position: relative;
 	z-index: 1;
 }

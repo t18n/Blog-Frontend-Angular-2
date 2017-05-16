@@ -14,11 +14,11 @@ constructor(private http: Http) { }
    */
   public getArticles() {
    return this.http.get(environment.apiRoute + 'posts')
-      .map(res => res.json());
+      .map(res => res.json().data);
   }
 
   public getArticle(id){
    return this.http.get( environment.apiRoute + 'posts/' + id)
-      .map(res => res.json());
+      .map(res => res.json().data);
   }
 }

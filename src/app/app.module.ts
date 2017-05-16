@@ -31,7 +31,25 @@ import { FaqComponent } from './faq/faq.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { CommingSoonComponent } from './comming-soon/comming-soon.component';
 import { CategoryPageComponent } from './category-page/category-page.component';
+import { UserComponent } from './user/user.component';
 
+export function httpClientFactory(backend: XHRBackend, defaultOptions: RequestOptions) {
+  return new HttpClient(backend, defaultOptions);
+}
+
+@Injectable()
+export class DefaultRequestOptions extends BaseRequestOptions {
+  headers = new Headers({});
+  merge(options?: RequestOptionsArgs): RequestOptions {
+    var newOptions = super.merge(options);
+    // newOptions.headers.set('X-Auth', localStorage.getItem('authToken'));
+    newOptions.headers.set('Accept', 'application/json');
+   newOptions.headers.set('Content-Type', 'application/json');
+    
+
+    return newOptions;
+  }
+}
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -83,7 +101,8 @@ const routes: Routes = [
     FaqComponent,
     ContactUsComponent,
     CommingSoonComponent,
-    CategoryPageComponent
+    CategoryPageComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
@@ -92,7 +111,17 @@ const routes: Routes = [
     RouterModule.forRoot(routes)
   ],
   exports: [RouterModule],
-  providers: [],
+    providers: [
+    {
+      provide: HttpClient,
+      useFactory: httpClientFactory,
+      deps: [XHRBackend, RequestOptions]
+    },
+    {
+      provide: RequestOptions,
+      useClass: DefaultRequestOptions
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
