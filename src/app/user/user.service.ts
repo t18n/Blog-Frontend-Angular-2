@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs';
-import { User } from './user';
+import { LoginData } from './login';
 import { Register } from './register';
 import { HttpClient } from './../HttpClient';
+import { AppComponent } from './../app.component';
+import { Router } from '@angular/router';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
@@ -12,12 +14,24 @@ import { environment } from './../../environments/environment';
 @Injectable()
 export class UserService {
 
-    constructor(private http: HttpClient) { }
+    router: Router;
 
-    login(user: User): Observable<User> {
-        return this.http.post(environment.apiRoute + 'oauth/token', user)
-            .map(res => res.json() as User)
+    constructor(private http: HttpClient,
+        private app: AppComponent,
+        _router: Router) {
+        this.router = _router;
+    }
+
+    login(login: LoginData): Observable<LoginData> {
+        return this.http.post(environment.apiRoute + 'oauth/token', login)
+            .map(res => res.json() as LoginData)
             .catch(this.handleError)
+    }
+
+    logout() {
+        this.app.isLoggedIn = false;
+        this.setAccessToken('');
+        this.router.navigateByUrl('/');
     }
 
 
@@ -32,9 +46,14 @@ export class UserService {
     //     return this.http.post(environment.apiRoute + this.userUrl + 'logout', {});
     //   }
 
-      setAccessToken(token: string): void {
-          this.http.setAccessToken(token);
-      }
+    setAccessToken(token: string): void {
+        this.http.setAccessToken(token);
+    }
+
+    public getUserInfo() {
+        return this.http.get(environment.apiRoute + 'user')
+            .map(res => res.json());
+    }
 
     private handleError(error: any): Promise<any> {
         return Promise.reject(error.json().error);

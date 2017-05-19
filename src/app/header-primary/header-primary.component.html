@@ -1,152 +1,100 @@
-	<!--=== Header ===-->
-	<div class="header-fixed">
-		<div class="wrapper">
-			<!--=== Header v2 ===-->
-			<div class="header-v2 header-sticky">
-				<div class="container container-space">
-					<!-- Topbar v2 -->
-					<div class="topbar-v2">
-						<div class="row">
-							<div class="col-sm-8">
-								<ul class="list-inline top-v2-contacts">
-									<li>Email: 
-										<a href="mailto:admin@sowable.com">admin@sowable.com</a>
-									</li>
-									<li>
-										<div class="language-bar">
-											<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-												<span class="heading">Languages</span>
-											</a>
-											<ul class="languages-dropdown" role="menu">
-												<li class="active">
-													<a href="#">English</a>
-												</li>
-											</ul>
-										</div>
-									</li>
-								</ul>
-							</div>
-							<div class="col-sm-4">
-								<div class="topbar-buttons pull-right">
-									<a routerLink="login-register" class="btn-u btn-brd btn-brd-hover btn-u-light margin-right-5">
-										Sign In
-									</a>
-									<a href="page_registration.html" class="btn-u">Sign Up
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- End Topbar v2 -->
+
+<!--=== Header ===-->
+<div class="header-v8 header-sticky">
+<app-topbar></app-topbar>
+
+	<!-- Navbar -->
+	<div class="navbar mega-menu" role="navigation">
+		<div class="container">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="res-container">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+
+				<div class="navbar-brand">
+					<a routerLink="/">
+							<img src="./../../assets/img/sowable/logo_70_ppi.png" alt="Logo">
+						</a>
 				</div>
+			</div>
+			<!--/end responsive container-->
 
-				<!-- Navbar -->
-				<div class="navbar navbar-default mega-menu" role="navigation">
-					<div class="container container-space">
-						<!-- Brand and toggle get grouped for better mobile display -->
-						<div class="navbar-header">
-							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-								<span class="sr-only">Toggle navigation</span>
-								<span class="fa fa-bars"></span>
-							</button>
-							<a class="navbar-brand brand-style" href="index.html">
-								<img id="logo-header" src="./../../assets/img/sowable/logo_70_ppi.png" width="85" height="32" alt="Logo">
-							</a>
-						</div>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse navbar-responsive-collapse">
+				<div class="res-container">
+					<ul class="nav navbar-nav">
+						<!-- Home -->
+						<li *ngFor="let category of categories" class="dropdown home active">
+							<a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+									{{category.name}}
+								</a>
+							<ul class="dropdown-menu">
+								<li class="active"><a href="index.html">Home Default Page</a></li>
 
-						<!-- Collect the nav links, forms, and other content for toggling -->
-						<div class="collapse navbar-collapse navbar-responsive-collapse">
-							<ul class="nav navbar-nav">
-								<!-- Home -->
-								<li class="dropdown">
-									<a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
-										Health
-									</a>
+								<!-- Post Layouts -->
+								<li class="dropdown-submenu">
+									<a href="javascript:void(0);">Blog Page Layouts</a>
 									<ul class="dropdown-menu">
-										<li>
-											<a href="index.html">Phisical Health</a>
-										</li>
-
-										<!-- One Page -->
-										<li class="dropdown-submenu">
-											<a href="javascript:void(0);">Knowledge</a>
-											<ul class="dropdown-menu">
-												<li>
-													<a target="_blank" href="One-Pages/Classic/index.html">
-														Book reading
-													</a>
-												</li>
-												<li>
-													<a target="_blank" href="One-Pages/Classic/one_page_dark.html">
-														Mentor
-													</a>
-												</li>
-											</ul>
-										</li>
-										<!-- End One Page -->
+										<li><a href="blog_page_layouts1.html">Page Layouts v1</a></li>
+										<li><a href="blog_page_layouts2.html">Page Layouts v2</a></li>
+										<li><a href="blog_page_layouts3.html">Page Layouts v3</a></li>
+										<li><a href="blog_page_layouts4.html">Page Layouts v4</a></li>
 									</ul>
 								</li>
+								<!-- End Post Layouts -->
 
-															<!-- Shortcodes -->
-							<li class="dropdown mega-menu-fullwidth">
-								<a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
-									Shortcodes
-								</a>
-								<ul class="dropdown-menu">
-									<li>
-										<div class="mega-menu-content disable-icons">
-											<div class="container">
-												<div class="row equal-height">
-													<div class="col-md-3 equal-height-in">
-														<ul class="list-unstyled equal-height-list">
-															<li><h3>Typography &amp; Components</h3></li>
+								<!-- Post Layouts -->
+								<li class="dropdown-submenu">
+									<a href="javascript:void(0);">Blog Post Layouts</a>
+									<ul class="dropdown-menu">
+										<li><a href="blog_post_layouts1.html">Post Layout v1</a></li>
+										<li><a href="blog_post_layouts2.html">Post Layout v2</a></li>
+										<li><a href="blog_post_layouts3.html">Post Layout v3</a></li>
+										<li><a href="blog_post_layouts4.html">Post Layout v4</a></li>
+										<li><a href="blog_post_layouts5.html">Post Layout v5</a></li>
+										<li><a href="blog_post_layouts6.html">Post Layout v6</a></li>
+										<li><a href="blog_post_layouts7.html">Post Layout v7</a></li>
+										<li><a href="blog_post_layouts8.html">Post Layout v8</a></li>
+										<li><a href="blog_post_layouts9.html">Post Layout v9</a></li>
+										<li><a href="blog_post_layouts_ls.html">Left Sidebar Example</a></li>
+										<li><a href="blog_post_layouts_fw.html">Full Width Example</a></li>
+									</ul>
+								</li>
+								<!-- End Post Layouts -->
 
-															<!-- Typography -->
-															<li><a href="shortcode_typo_general.html"><i class="fa fa-sort-alpha-asc"></i> General Typography</a></li>
-															<li><a href="shortcode_typo_headings.html"><i class="fa fa-magic"></i> Headings Options</a></li>
-															<!-- End Components -->
-														</ul>
-													</div>
-													<div class="col-md-3 equal-height-in">
-														<ul class="list-unstyled equal-height-list">
-															<li><h3>Buttons &amp; Icons</h3></li>
+								<!-- Grid Layouts -->
+								<li class="dropdown-submenu">
+									<a href="javascript:void(0);">Grid Layouts</a>
+									<ul class="dropdown-menu">
+										<li><a href="blog_grid_1.html">Grid: 1 Col</a></li>
+										<li><a href="blog_grid_2.html">Grid: 2 Col</a></li>
+										<li><a href="blog_grid_3.html">Grid: 3 Col</a></li>
+										<li><a href="blog_grid_4.html">Grid: 4 Col</a></li>
+										<li><a href="blog_grid_4_fw.html">Grid: Full Width (4 Col)</a></li>
+										<li><a href="blog_grid_2_rs.html">Grid: Right Sidebar (2 Col)</a></li>
+										<li><a href="blog_grid_2_ls.html">Grid: Left Sidebar (2 Col)</a></li>
+									</ul>
+								</li>
+								<!-- End Grid Layouts -->
 
-															<!-- Buttons -->
-															<li><a href="shortcode_btn_general.html"><i class="fa fa-flask"></i> General Buttons</a></li>
-															<li><a href="shortcode_btn_brands.html"><i class="fa fa-html5"></i> Brand &amp; Social Buttons</a></li>
-															<li><a href="shortcode_btn_effects.html"><i class="fa fa-bolt"></i> Loading &amp; Hover Effects</a></li>
-															<!-- End Buttons -->
-
-															<!-- Icons -->
-															<li><a href="shortcode_icon_general.html"><i class="fa fa-chevron-circle-right"></i> General Icons</a></li>
-															<li><a href="shortcode_icon_fa.html"><i class="fa fa-chevron-circle-right"></i> Font Awesome Icons</a></li>
-															<!-- End Icons -->
-														</ul>
-													</div>
-												</div>
-											</div>
-										</div>
-									</li>
-								</ul>
-							</li>
-							<!-- End Shortcodes -->
+								<li><a href="blog_single.html">Single Page</a></li>
+								<li><a href="blog_home_boxed.html">Home Boxed Page</a></li>
+								<li><a href="blog_home_boxed_space.html">Home Boxed Space Page</a></li>
 							</ul>
-						</div><!--/navbar-collapse-->
-					</div>
+						</li>
+						<!-- End Home -->
+					</ul>
 				</div>
-				<!-- End Navbar -->
+				<!--/responsive container-->
 			</div>
-			<!--=== End Header v2 ===-->
-
-			<!-- Interactive Slider v2 -->
-			<div class="interactive-slider-v2">
-				<div class="container">
-					<h1>Welcome to Sowable</h1>
-					<p>A worthy life is sowable</p>
-				</div>
-			</div>
-			<!-- End Interactive Slider v2 -->
-
-		</div><!--/wrapper-->
+			<!--/navbar-collapse-->
+		</div>
+		<!--/end contaoner-->
 	</div>
-	<!--=== End Header ===-->
+	<!-- End Navbar -->
+</div>
+<!--=== End Header ===-->

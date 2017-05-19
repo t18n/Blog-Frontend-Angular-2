@@ -13,7 +13,6 @@ import { SinglearticleComponent } from './singlearticle/singlearticle.component'
 import { HeaderPrimaryComponent } from './header-primary/header-primary.component';
 import { FooterComponent } from './footer/footer.component';
 import { errorPageComponent } from './404page/404page.component';
-import { HeaderSecondaryComponent } from './header-secondary/header-secondary.component';
 import { TagComponent } from './tag/tag.component';
 import { AboutMeComponent } from './about-me/about-me.component';
 import { LoginRegistrationComponent } from './login-registration/login-registration.component';
@@ -32,6 +31,9 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { CommingSoonComponent } from './comming-soon/comming-soon.component';
 import { CategoryPageComponent } from './category-page/category-page.component';
 import { UserComponent } from './user/user.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { UserPostComponent } from './user-post/user-post.component';
+import { TopbarComponent } from './topbar/topbar.component';
 
 export function httpClientFactory(backend: XHRBackend, defaultOptions: RequestOptions) {
   return new HttpClient(backend, defaultOptions);
@@ -42,8 +44,8 @@ export class DefaultRequestOptions extends BaseRequestOptions {
   headers = new Headers({});
   merge(options?: RequestOptionsArgs): RequestOptions {
     var newOptions = super.merge(options);
-    // newOptions.headers.set('X-Auth', localStorage.getItem('authToken'));
-    newOptions.headers.set('Accept', 'application/json');
+    newOptions.headers.set('Authorization', localStorage.getItem('authToken'));
+    //newOptions.headers.set('Accept', 'application/json');
    newOptions.headers.set('Content-Type', 'application/json');
     
 
@@ -61,6 +63,7 @@ const routes: Routes = [
   { path: 'user-public', component: UserPublicProfileComponent },  
   { path: 'profile-setting', component: UserProfileSettingsComponent }, 
   { path: 'user-comments', component: UserCommentsComponent },  
+  { path: 'user-posts', component:UserPostComponent},
   {path: 'testimonials', component: TestimonialsComponent},
   {path: 'terms', component: TermsComponent},
   {path: 'search', component: SearchComponent},
@@ -71,6 +74,7 @@ const routes: Routes = [
   {path: 'contact-us', component: ContactUsComponent},
   {path: 'comming-soon', component: CommingSoonComponent},
   {path: 'category', component: CategoryPageComponent},
+  {path: 'dashboard', component:DashboardComponent},
   { path: '**', redirectTo: '/404', pathMatch: 'full' }
 ];
 
@@ -84,7 +88,6 @@ const routes: Routes = [
     HeaderPrimaryComponent,
     FooterComponent,
     errorPageComponent,
-    HeaderSecondaryComponent,
     TagComponent,
     AboutMeComponent,
     LoginRegistrationComponent,
@@ -102,7 +105,10 @@ const routes: Routes = [
     ContactUsComponent,
     CommingSoonComponent,
     CategoryPageComponent,
-    UserComponent
+    UserComponent,
+    DashboardComponent,
+    UserPostComponent,
+    TopbarComponent
   ],
   imports: [
     BrowserModule,

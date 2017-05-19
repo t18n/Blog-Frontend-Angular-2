@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from './../user/user';
+import { LoginData } from './../user/login';
 import { Register } from './../user/register';
 import { Router } from '@angular/router';
 import { UserService } from './../user/user.service';
@@ -13,7 +13,7 @@ import { AppComponent } from './../app.component';
 })
 export class LoginRegistrationComponent implements OnInit {
 
-  user: User = new User();
+  loginData: LoginData = new LoginData();
   register: Register = new Register();
   error: string;
   router: Router;
@@ -30,8 +30,9 @@ export class LoginRegistrationComponent implements OnInit {
   }
 
   public login(): void {
+    console.log(this.loginData);
     this.error = '';
-    this.userService.login(this.user).subscribe(
+    this.userService.login(this.loginData).subscribe(
       data => {
         this.handleSuccess(data);
         error => this.handleError(error);
@@ -47,11 +48,10 @@ export class LoginRegistrationComponent implements OnInit {
     )
   }
     private handleSuccess(data: any) {
-    console.log(data);
     this.userService.setAccessToken(data.token_type + ' ' + data.access_token);
     // this.app.userPartyId = data.PARTY_ID;
     this.app.isLoggedIn = true;
-    this.router.navigateByUrl('/user-public');
+    this.router.navigateByUrl('/dashboard');
   }
 
   private handleError(error: any) {
