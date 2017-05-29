@@ -15,4 +15,5 @@ export class Article {
   author_id: number = 0;
   created_at : string = '';
   updated_at : string = '';
+  category_name : string = ''; //not sure it work for add article
 }

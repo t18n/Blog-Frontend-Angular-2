@@ -46,7 +46,7 @@
 					<div class="col-md-6" *ngFor="let article of articles | slice:sliceStart:sliceEnd; let j =index">
 						<div class="magazine-news-img">
 							<a href="#"><img class="img-responsive" src="assets/img/main/img.jpg" alt=""></a>
-							<span class="magazine-badge label-red">{{article.category_id}}</span>
+							<span class="magazine-badge label-red">{{article.category.data.name}}</span>
 						</div>
 						<h3><a routerLink="/article/{{article.id}}">{{article.title}}</a></h3>
 						<div class="by-author">

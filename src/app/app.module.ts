@@ -73,7 +73,7 @@ const routes: Routes = [
   {path: 'faq', component: FaqComponent},
   {path: 'contact-us', component: ContactUsComponent},
   {path: 'comming-soon', component: CommingSoonComponent},
-  {path: 'category', component: CategoryPageComponent},
+  {path: 'category/:cat_id', component: CategoryPageComponent},
   {path: 'dashboard', component:DashboardComponent},
   { path: '**', redirectTo: '/404', pathMatch: 'full' }
 ];
