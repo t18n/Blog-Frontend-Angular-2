@@ -30,7 +30,6 @@ export class LoginRegistrationComponent implements OnInit {
   }
 
   public login(): void {
-    console.log(this.loginData);
     this.error = '';
     this.userService.login(this.loginData).subscribe(
       data => {

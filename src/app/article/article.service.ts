@@ -21,4 +21,9 @@ constructor(private http: Http) { }
    return this.http.get( environment.apiRoute + 'posts/' + id)
       .map(res => res.json().data);
   }
+
+  public likeArticle(id){
+   return this.http.post( environment.apiRoute + 'posts/' + id + '/likes', id)
+      .map(res => res.json());
+  }
 }

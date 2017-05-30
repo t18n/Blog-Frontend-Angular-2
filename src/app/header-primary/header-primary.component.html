@@ -29,11 +29,11 @@
 					<ul class="nav navbar-nav">
 						<!-- Home -->
 						<li *ngFor="let category of categories" class="dropdown home active">
-							<a routerLink="category/{{category.id}}" class="dropdown-toggle" data-toggle="dropdown">
+							<a routerLink="category/main_cat/{{category.id}}" class="dropdown-toggle" data-toggle="dropdown">
 									{{category.name}}
 								</a>
 							<ul class="dropdown-menu">
-								<li *ngFor="let subcategory of category.subcategories.data" class="active"><a href="index.html">{{subcategory.name}}</a></li>
+								<li *ngFor="let subcategory of category.subcategories.data" class="active"><a  routerLink="category/sub_cat/{{subcategory.id}}" href="index.html">{{subcategory.name}}</a></li>
 
 								<!-- Post Layouts
 								<li class="dropdown-submenu">

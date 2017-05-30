@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { UserInfo } from './../user/userinfo';
 import { UserService } from './../user/user.service';
 import { AppComponent } from './../app.component';
@@ -30,5 +30,4 @@ export class TopbarComponent implements OnInit {
       );
     }
   }
-
 }

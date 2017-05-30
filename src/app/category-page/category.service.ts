@@ -21,4 +21,9 @@ export class CategoryService {
     return this.http.get(environment.apiRoute + 'categories/' + cat_id)
       .map(res => res.json().data);
   }
+
+  public getPostsBySubCategory(cat_id) {
+    return this.http.get(environment.apiRoute + 'subcategories/' + cat_id)
+      .map(res => res.json().data);
+  }
 }

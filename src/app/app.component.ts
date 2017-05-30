@@ -31,7 +31,6 @@ export class AppComponent {
   }
     
   public isLogin() {
-    console.log(this.route.url);
     return false;
   }
 }

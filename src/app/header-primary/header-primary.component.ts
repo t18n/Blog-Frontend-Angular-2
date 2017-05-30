@@ -58,7 +58,6 @@ export class HeaderPrimaryComponent implements OnInit {
     SUBSCRIBEDEMAILS.push({
       email: this.toSubscribe
     });
-    console.log(SUBSCRIBEDEMAILS);
   }
 
 }

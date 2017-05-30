@@ -34,7 +34,6 @@ export class UserProfileSettingsComponent implements OnInit {
     this.userService.getUserInfo().subscribe(
       data => {
         this.userinfo = data;
-        console.log(this.userinfo);
         error => this.error = error.json().error;
       }
     );

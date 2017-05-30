@@ -45,4 +45,6 @@ export class HomeComponent implements OnInit {
     this.sliceStart = i * 6;
     this.sliceEnd = this.sliceStart + 6;
   }
+
+
 }

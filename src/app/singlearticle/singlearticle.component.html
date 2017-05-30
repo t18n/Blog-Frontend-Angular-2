@@ -1,5 +1,3 @@
-
-
 <div class="wrapper">
 	<!--=== Breadcrumbs ===-->
 	<div class="breadcrumbs">
@@ -22,11 +20,16 @@
 			<div class="col-md-9 md-margin-bottom-60">
 				<!--Blog Post-->
 				<div class="blog margin-bottom-40">
+					<h5 *ngIf="error" style="color:red;">{{error}}</h5>
 					<h2><a href="blog_item_option1.html">{{article.title}}</a></h2>
 					<div class="blog-post-tags">
 						<ul class="list-unstyled list-inline blog-info">
 							<li><i class="fa fa-calendar"></i> {{article.updated_at | date:'medium'}}</li>
 							<li><i class="fa fa-pencil"></i> {{article.author_id}}</li>
+							<li *ngIf="articleuser != userinfo.name">
+								<span *ngIf="!liked" (click)="likeArticle(article.id)" style="border:solid 1px; cursor: pointer;">{{article.like_count}} <i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Like</span>
+								<span *ngIf="liked" (click)="likeArticle(article.id)" style="border:solid 1px; cursor: pointer;">{{article.like_count}} <i class="fa fa-check" aria-hidden="true"></i> Liked</span>
+							</li>
 							<li><i class="fa fa-comments"></i> <a href="#">{{article.numcomments}} Comments</a></li>
 						</ul>
 						<ul class="list-unstyled list-inline blog-tags">
@@ -314,4 +317,3 @@
 	<!--=== End Content Part ===-->
 </div>
 <!--/wrapper-->
-

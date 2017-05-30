@@ -1,4 +1,19 @@
 <div class="wrapper">
+	<!--=== Breadcrumbs ===-->
+	<div class="breadcrumbs">
+		<div class="container">
+			<h1 class="pull-left">
+				<span *ngIf="category_name != '' && subcategory_name == ''">{{category_name}}</span>
+				<span *ngIf="subcategory_name != ''">{{subcategory_name}}</span>
+			</h1>
+			<ul class="pull-right breadcrumb">
+				<li><a href="index.html">Sowable</a></li>
+				<li><a href="">{{category_name}}</a></li>
+				<li class="active" *ngIf="subcategory_name != ''"><a href="">{{subcategory_name}}</a></li>
+			</ul>
+		</div>
+	</div>
+	<!--/breadcrumbs-->
 	<!--=== Content Part ===-->
 	<div class="container content">
 		<div class="row magazine-page">
@@ -9,7 +24,7 @@
 				<div class="magazine-news">
 					<h4 *ngIf="articles == null">Loading articles...</h4>
 					<div class="col-md-4" *ngFor="let article of articles | slice:sliceStart:sliceEnd; let j =index">
-						
+
 						<div class="magazine-news-img">
 							<a href="#"><img class="img-responsive" src="assets/img/main/img.jpg" alt=""></a>
 							<span class="magazine-badge label-red">{{category_name}}</span>
