@@ -13,7 +13,7 @@ export class TopbarComponent implements OnInit {
 
   public userinfo: UserInfo = new UserInfo();
   public error: string;
-  constructor(private app: AppComponent,
+  constructor(public app: AppComponent,
               private userService: UserService) { }
 
   ngOnInit() {

@@ -77,4 +77,6 @@ export class CategoryPageComponent implements OnInit {
     this.sliceEnd = this.sliceStart + 6;
   }
 
+
+
 }
