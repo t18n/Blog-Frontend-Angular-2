@@ -6,18 +6,18 @@ branches:
   - master
 before_script: 
 addons:
-    apt:
-        packages:
-            - sshpass
+  apt:
+    packages:
+    - sshpass
 script:
-  - ng build --prod
+- ng build --prod
 after_success:
-  - ls -l
-  - tar -czf package.tgz dist
-  - ls -l
-  - export SSHPASS=$DEPLOY_PASS
-  - sshpass -e scp package.tgz -o stricthostkeychecking=no $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH
-  - sshpass -e ssh $DEPLOY_USER@$DEPLOY_HOST $DEPLOY_PATH/deploy.sh
+- ls -l
+- tar -czf package.tgz dist
+- ls -l
+- export SSHPASS=$DEPLOY_PASS
+- sshpass -e scp package.tgz -o stricthostkeychecking=no $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH
+- sshpass -e ssh $DEPLOY_USER@$DEPLOY_HOST $DEPLOY_PATH/deploy.sh
 notifications:
   email:
     on_failure: change
