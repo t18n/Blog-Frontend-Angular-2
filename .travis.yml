@@ -16,7 +16,7 @@ after_success:
 - tar -czf package.tgz dist
 - ls -l
 - export SSHPASS=$DEPLOY_PASS
-- scp -o stricthostkeychecking=no package.tgz $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH
+- scp -o stricthostkeychecking=no package.tgz $DEPLOY_USER@$DEPLOY_HOST:/home/turbo/
 - sshpass -e ssh $DEPLOY_USER@$DEPLOY_HOST $DEPLOY_PATH/deploy.sh
 notifications:
   email:
