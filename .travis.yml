@@ -5,6 +5,9 @@ branches:
   only:
   - master
 before_script: 
+before_install:
+- openssl aes-256-cbc -K $encrypted_abf1c25cba00_key -iv $encrypted_abf1c25cba00_iv
+  -in deploy-key.enc -out deploy-key -d
 addons:
   apt:
     packages:
@@ -22,9 +25,6 @@ notifications:
   email:
     on_failure: change
     on_success: change
-before_install:
-- openssl aes-256-cbc -K $encrypted_abf1c25cba00_key -iv $encrypted_abf1c25cba00_iv
-  -in deploy-key.enc -out deploy-key -d
 env:
   global:
   - secure: dIDKWKxM170t4MWJInL04+j+vJl9wKtb6p/m5ev90+RPRRXXaFmWd333jYptMjYX/4b0/L60x0FBB6DbSZnUx0b0EoV7IRuZogQxlwLxiO6p6OKHc9ujjhYTeTw+bz0WdEGyag9Kw4ZqdWCefxg9DrlFgK2bjIqtkP5Cj8lJsHSEvxglAXKWM0eeGdSa0b7NYALUj6VQKhT995HgXm02QB6I+Yh3jFRrDLQFEaw2hCuLy7nNlXFeXtqzfwESyPZ21ZmydQRuHSoWTTE5d8KY6YlUsB/1sm129GUwxT9jswN969kOIVhHcbMBFUIgAZMPnKTyIdOY93lH4b/CcD0PAKQuTlakKrtpS6b57/RBlpMFx+QGYyKxczkVNkJvkdEkLCk/KEcxnzAvN/tCCEBLvxrr/TEELvQmsID8ExJFV7J9QJWHG6MKQW3VD8fPKk5GuPkXheAmsDC8gn/W7yr1+32ea8FIE5/Lcp6iSv9H7gjtTiWOFLh1zooeuQkPBxYgEZrqarlOcboaJuPbrWDfd/rVfMYQfkrkAW+LWgW+bw3s/p6lQJMkVP/8vw5dQLqwr32EvUSlLxk8JnePaDV0pkb+kyp9UVgfzn4Cm2f0y5isLVJvylAPQiLao3f9LmVxM8cPXRi7pDh+H7nn1abNB/78dPA/ChNyknaI+aN/5q8=
