@@ -10,16 +10,15 @@ addons:
     packages:
     - sshpass
 script:
-- ng build --prod
 after_success:
 - ls -l
 - ls ~/.ssh
 - cat ~/.ssh id_travis_rsa
--- cat ~/.ssh id_travis_rsa.pub
+- cat ~/.ssh id_travis_rsa.pub
 - tar -czf package.tgz dist
 - ls -l
 - export SSHPASS=$DEPLOY_PASS
-- scp -o stricthostkeychecking=no package.tgz $DEPLOY_USER@$DEPLOY_HOST:/home/turbo/
+- sshpass -e scp -o stricthostkeychecking=no package.tgz $DEPLOY_USER@$DEPLOY_HOST:/home/turbo/
 - sshpass -e ssh $DEPLOY_USER@$DEPLOY_HOST $DEPLOY_PATH/deploy.sh
 notifications:
   email:
