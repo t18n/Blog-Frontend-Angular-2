@@ -10,11 +10,10 @@ addons:
     packages:
     - sshpass
 script:
+- ng build --prod
 after_success:
 - ls -l
 - ls ~/.ssh
-- cat ~/.ssh id_travis_rsa
-- cat ~/.ssh id_travis_rsa.pub
 - tar -czf package.tgz dist
 - ls -l
 - export SSHPASS=$DEPLOY_PASS
