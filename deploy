@@ -1,7 +1,0 @@
--#!/bin/sh      
-ssh turbo@45.79.161.79 <<EOF        
- cd /var/www/api
- git pull       
- npm install --production       
- exit       
-EOF
