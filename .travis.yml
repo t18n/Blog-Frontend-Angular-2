@@ -5,9 +5,6 @@ branches:
   only:
   - master
 before_script: 
-before_install:
-- openssl aes-256-cbc -K $encrypted_abf1c25cba00_key -iv $encrypted_abf1c25cba00_iv
-  -in deploy-key.enc -out deploy-key -d
 addons:
   apt:
     packages:
@@ -19,7 +16,7 @@ after_success:
 - tar -czf package.tgz dist
 - ls -l
 - export SSHPASS=$DEPLOY_PASS
-- sshpass -e scp package.tgz $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH
+- sshpass -e scp -o stricthostkeychecking=no package.tgz $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH
 - sshpass -e ssh $DEPLOY_USER@$DEPLOY_HOST $DEPLOY_PATH/deploy.sh
 notifications:
   email:
@@ -32,3 +29,6 @@ env:
   - secure: bLhTIc+c9Q865UR6zKp09iLAQnlgp9Q6QoCu/yKMXpKjYxDGCbILjR7IqWydlIXwFHfMJaboLiSksK+cx4Px8npWJGp4OecSaDQxBYjwNBMgcb9iHPpIMz6a+XaI/CD6ITvkXXZdIqVNLEcYxnc4brmbGYteIsRGGtvwvpg8RjkSCZGkuMZ0JbRqlpiXfaguS6Sx9wZePh5sOkLeFpoQpJvLByoeCsyNeQ1QvTHqjMphOwbn5j5YhciTcvtBTVQNwwylqYlA7i5V+PKsE5tZdNWKx1x2LhMKtR4V1ux6EaqZ0wWWMaHY5hPdJxZU47u1UhSFLrtYhhyKg2LfqzZI3x30gtLh4A7vhnUMG+mezbG9VaUr7Igg9gJudcS0zf0BS1KvLLw8DwaRUXq2oFIAro/nk+RjU93huvmnDZjdIFnSfXzLG36472kGUR7MQbLE589eHfw4K0Dq3oTAJtCngdpPfhylubepZy121RANXbpsquaokCcScgqvqeP5B8CLR/K9vIxKhTkCGPcjchxbg9nMktZAigdPdFZWMpsvO0AuCEGyFPESfQA1mB4kUFEXJZ4fgKfCny3d3zZjS6JpMLZPnuMVHFYf//CR4q4h91Pqs+I1yXFEhY0I5FAgVQxDlFSO525dyNPvPG5O9e6urbp94kXU1Cgcc7T18LJy3S8=
 dd:
   secure: ih7BisAHlQSbcZbXd6XGlmtzKEks+HBswbcgVIx+/Apd6MS8eZMXGWJ0i3TcUkxwLwkRyPXzQJTDN6g/mH0VSKkepEVdCA4uAi6zACgK/tHDqm+hQA+FC3CxQLHwLgBaWAfelkppQty5VWuEFC4nZ8rCuoaL3CiCbX6x1yweZWpr1VvMyMTZ/oZzaopOL4UaHUOsdJvdJI+ifh+VrmqzvXnjWx8BuxyfN7+ojG5Ezm1+esHfxn6eOaKKtXz6Nq+TdZzT/MF9QaNanUTaxfNm16vFwHiVb5nEgB7ytR0In+b9P757V3ceYqVZbizRPlaK0eWQZOrbH0Kxb3+ES26+J94Wkw2OsC7u2ZZcTrZIFgLZ+GNoTyFYhCeYl3IxGE1Tj3JPn038Ykl155FUqPbnu07j3WC46qs2MFyJ7I5R/qMTflk0+WnzUhAl1aaax8v1iE98nkU77Gjo4wG/wH77UNnR/rvcgJ6QzK7AQNZWekhbtIiuwCjctLW94jYLQee1Bsn+wdDvD00XP0xNCXWX9b46Mt4L6IlCMWrntuuhCaQDtUucvXd9URdIQiSprV8sbfgpmmHDAvz4GaMFPf7xY6zJWWhtfZNX2a4UlNJI0zQ9cDH0elKK3qT9f/n3JC8no9g+1DDscXTEZVYd02F4OSKryDkrVl3PMbRMrdd9PEc=
+before_install:
+- openssl aes-256-cbc -K $encrypted_abf1c25cba00_key -iv $encrypted_abf1c25cba00_iv
+  -in id_travis_rsa.enc -out id_travis_rsa -d
