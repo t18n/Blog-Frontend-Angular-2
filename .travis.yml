@@ -13,9 +13,7 @@ script:
   - ng build --prod
 after_success:
   - ls -l
-  - ls -l ../
-  - ls -l ../../
-  - tar -czf package.tgz .dist
+  - tar -czf package.tgz dist
   - ls -l
   - export SSHPASS=$DEPLOY_PASS
   - sshpass -e scp package.tgz -o stricthostkeychecking=no $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH
