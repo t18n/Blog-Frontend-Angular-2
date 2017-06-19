@@ -12,12 +12,12 @@ addons:
 before_install:
   - openssl aes-256-cbc -K $encrypted_abf1c25cba00_key -iv $encrypted_abf1c25cba00_iv
     -in travis-pri.enc -out travis-pri -d
-  - bash _scripts/install.sh
+  - bash .script/install.sh
 script:
-  - bash _scripts/build.sh
-  - bash _scripts/test.sh
+  - bash .script/build.sh
+  - bash .script/test.sh
 after_success:
-  - bash _scripts/deploy.sh
+  - bash .script/deploy.sh
 notifications:
   email:
     on_failure: change
