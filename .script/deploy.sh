@@ -3,7 +3,9 @@ set -x
 if [ $TRAVIS_BRANCH == 'master' ] ; then
     # Initialize a new git repo in _site, and push it to our server.
     ls
-    cd _site
+    mkdir .deploy
+    cd .deploy
+    cp ../dist .
     ls
     git init
 
@@ -12,7 +14,7 @@ if [ $TRAVIS_BRANCH == 'master' ] ; then
     git config user.name "Turbo"
     git config user.email "tienthinhturbo@gmail.com"
     
-    git add ../dist
+    git add .
     git commit -m "Deploy"
     git push --force deploy master
 else
