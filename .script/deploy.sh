@@ -2,7 +2,7 @@
 set -x
 if [ $TRAVIS_BRANCH == 'master' ] ; then
     # Initialize a new git repo in _site, and push it to our server.
-    ls
+    ls -la
     mkdir .deploy
     cd .deploy
     cp ../dist .
