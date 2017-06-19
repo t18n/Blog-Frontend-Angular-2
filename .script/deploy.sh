@@ -4,9 +4,13 @@ if [ $TRAVIS_BRANCH == 'master' ] ; then
     # Initialize a new git repo in _site, and push it to our server.
     ls -la
     mkdir .deploy
+
+    cp dist .deploy/dist
+    ls -la
+
     cd .deploy
-    cp ../dist .
-    ls
+    pwd
+    ls -la
     git init
 
     ssh-keyscan 45.79.161.79 >> ~/.ssh/known_hosts
@@ -14,7 +18,7 @@ if [ $TRAVIS_BRANCH == 'master' ] ; then
     git config user.name "Turbo"
     git config user.email "tienthinhturbo@gmail.com"
     
-    git add .
+    git add dist
     git commit -m "Deploy"
     git push --force deploy master
 else
