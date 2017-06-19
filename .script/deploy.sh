@@ -5,7 +5,7 @@ if [ $TRAVIS_BRANCH == 'master' ] ; then
     ls -la
     mkdir .deploy
 
-    cp dist .deploy/dist
+    cp -r dist .deploy/dist
     ls -la
 
     cd .deploy
