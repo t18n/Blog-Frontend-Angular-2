@@ -14,12 +14,13 @@ if [ $TRAVIS_BRANCH == 'master' ] ; then
     git init
 
     ssh-keyscan 45.79.161.79 >> ~/.ssh/known_hosts
-    git remote add deploy turbo@45.79.161.79:/var/www/home/.git
     git config user.name "Turbo"
     git config user.email "tienthinhturbo@gmail.com"
     
     git add dist
     git commit -m "Deploy"
+
+    git remote add deploy ssh://turbo@45.79.161.79/var/www/home
     git push --force deploy master
 else
     echo "Not deploying! This branch is not Master."
