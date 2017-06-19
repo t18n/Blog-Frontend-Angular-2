@@ -6,6 +6,7 @@ if [ $TRAVIS_BRANCH == 'master' ] ; then
     cd _site
     git init
 
+    ssh-keyscan 45.79.161.79 >> ~/.ssh/known_hosts
     git remote add deploy "turbo@45.79.161.79:/var/www/public"
     git config user.name "Turbo"
     git config user.email "tienthinhturbo@gmail.com"
