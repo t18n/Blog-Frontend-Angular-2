@@ -9,26 +9,16 @@ addons:
   apt:
     packages:
     - sshpass
+before_install:
+  - openssl aes-256-cbc -K $encrypted_abf1c25cba00_key -iv $encrypted_abf1c25cba00_iv
+    -in travis-pri.enc -out travis-pri -d
+  - bash _scripts/install.sh
 script:
-- ng build --prod
+  - bash _scripts/build.sh
+  - bash _scripts/test.sh
 after_success:
-- ls -l
-- ls ~/.ssh
-- tar -czf package.tgz dist
-- ls -l
-- export SSHPASS=$DEPLOY_PASS
-- sshpass -e scp -o stricthostkeychecking=no package.tgz $DEPLOY_USER@$DEPLOY_HOST:/home/turbo/
-- sshpass -e ssh $DEPLOY_USER@$DEPLOY_HOST $DEPLOY_PATH/deploy.sh
+  - bash _scripts/deploy.sh
 notifications:
   email:
     on_failure: change
     on_success: change
-env:
-  global:
-  - secure: IJNIPsX+AJSsnqMMtzIWwd6X+wsiaMiais6jEhPJzFLdyTzv2+DquL8nkBdBj6rgKotzt9GkJqb27NA5h3TeFbOkIZmfhEx5qoHSLbcBCp/Nfw+pZEhZG2JB7gncAZeqOIeBhSsIvVVUXa/RKWUDBNeZTkL7NNasl77KwyUVtLPYXzm1wSSQgyyAXsQ10NdSDvdDlwQ7rZbf3rKquHjQFnhA+CDuvP458qFAWekTSLcRwxDlaFkIlpHz6MgxzQBSiJW0bxX1yjNdhSd0+5GpMQYAIbVmPZlHJ6m3aPLv44yjt6FnOX/nuI3D5J/GHlLNeETRwIlP7i1HVlOEo6VpVP5uHHnltkJUsZegacbhCnBvYCK+ym/FngtTk6pvY+dLnJ+w2DHOLPeP3BUPAqGtDwUzyqkIXOQWB0uKJoiRyirGO32lEGAmq/rvCJT3xv6rj24htDZxGOhh0OcjyXf2y4MYU1OUXYjC95t/EmpzuLh14UZ5wN07A9WmHpj5fGKHwWuh00G6aymb+q4JobwNEzcuADEDU6FkOmf61jiR248iAOPcHKsrLjynDpMzUuxtbyZh94RTdBYj3j9UU9YLaeCwN43c/rddQ+Rf7cF9/nyDEIebp9Yvc6z70u5GL+PLh2cYCph+SGsHHXgUk/xkLEpTKYJdM+ZNrfWuAj5Ahyg=
-  - secure: Pirp07ism3OIG9Y054JyTaX0u31DZ1VUVN4oR8TDqebzeXMr/pidxJ2rjckfogrrxBooICnb2B0qD7V8IkXxfv+gLxnNBHospdOfpAsWA5/q4xUusetz0tZORpVQ5JcePI4+VDwY3MLD5jnW5OL4mVTKT6FRtOFmWJWcG0yLbO1H0rfwX908DyWlVqE/6BoRTkeMipAGMFjFhVKdU3veNuvWM/dcyUJbl7sfAOQUHPEvJlCtHSD+aHZVGCV9W/v8nO8V7dTi1l6HoL90kfBUFH/Rg0myb7SO2ui8DEn+cUF05SLJCFqm8qamqlhWeaVkA05YGAdoEt7yWFi8V+gLQg07wQDGLDgxQ4ezA54UIcj05fKI6XdwdbuAvx0S8OiZwGYQCC9egkM7Wo4nKXyclXakaoQA/PsUAxCZ9aKsmaS3SSHK4GyDzq9i0ZP73oojvoYQHjjGESdfCr0ivz24se8erUnJsNK9dK0+tdzh2ojo6062jS4NPDlS7whT+/mgCBNFAgvU5ChL5isDs0dmlVLB69HMiIgq7Y0s8g4qheCDAp6aEc6YJ2vALg2f+rbZdw4mw95NF5BGvlQDammfeERuHexUFNTINuj22mUGigxRZx1HvfxbGu1bgpVCsdQwQj9JW81yhXrceJCl+hfbcBS3b8AZ6gTySEd/1/cLYIw=
-  - secure: jlkpbTOr7JNnRXiHCG9mzgOxEQYnw1yeGVyoF87uuriU+xURdS2sIH0tYXC1OII+tcR7UTbdCaIWBdjkH8GCdT25xPcfRllfACIsPy04TtNBlqTDITYoWDN/CRpUhVQQaLOyygs/O9bN7azqOha9xc/XOpZq2BBcAcetqFlpicNlymq0FfGFqSH1F1R/prsrqHUPYO8xGJStPdJxfqYCFkjb1wjvor2nuSMh0ehPi8ysnVeUnrCTYs1QTECHWqBgVprK5/rVcN3Gk3MOdZHXW56+vLYzbm5LHffRorVkYz7rWNPVNE2LOK12jfrU7z7Mi1rjMQd4rIFuC0YDdAz3x1knVbHKPm79ddqCpGYifwgl38Cbzf9jRbdeAkbbQwUg3a8828g8gZnBkfPTHlN+wB9HgeL2roOVMA19aj35Fu6JuPEMhHLkIyvXYJxO765RfQ/KRwOC8bAlQ6K5sJ32gJ6mJrfbHWeqBrTpkF4dGNQ4Dbtmn7QlOwnwlQOZH6CIQhBDhjmViKiGSw8gaB0gtKJkXYirYbI0JAO5kdkU6II/sS2qXvo9gXP4RJ3cMXJ060uyHjYAZ7wlVdGFfgS4Hgna5ZdCvalXNuhDPINCyGe+TMalfvo97qtRP94A25BVBLIveQvCayaCizi6q36vVLFqO/47RF5jvJkAmGp/hiM=
-  - secure: fQc+IwNsRJk+hbmZhUutbwGGW9o64Sz3MkHStx/u9hTfugcoDMXte3xy7/AjyD4HZHSQIpi+VZrmMpIcgQ7zse1S6gNIM0cmK8swJ/iRGkN7P1QjmHOeRnY2qunDcOWDU/ymM/ak8kZxEmdl1ChM20vFuTkr3VAt7y/XxFUevcHobN3fLp5cbihoL0Uqh4HM/rGdOInn+DFDnrJaNykA3vYr3TgaHOkx9+OwW2McykSeJAF5OwQHWE7fuLc3O75ChF51IXFFfn9fUlYCuZVPvtza0PqoQIPUIvQ2QhJ6xsmO19XUNx+ke1ySCTe6QDtnxswDVjXYKhnszXnuGbmHkTKCuAXcIfhs2op0okpWGW8Sk5OVeLIz0v8QUBuho5d7lEvrIQOCSBZLF3lnn4/C5x+ov8NUtuJ9kjOkYaQbAebkmgvn/xNh4szfhSObirJCJhqbn/Wf22w/2kdgBl1R+aViNLFVXjn9an++f6/VGVtS9jIlZy1jCODQbxNIBzOUf+OOuYX8nSqL/Ije65wSigneE3NyIjMVZgfuy3jY6J8/3tWjS7uACQUgTp/tDy2pPdCOUs6S4GitULvuPwt9A1zjiYST3yuvlRfQ00/T94hnsAli3XJdq9Bme2jTVD2/7s7UB5WIFlkDNGcDLSW2SuJ5YGOhNMngN5/uJ6PY6s8=
-before_install:
-- openssl aes-256-cbc -K $encrypted_abf1c25cba00_key -iv $encrypted_abf1c25cba00_iv
-  -in id_travis_rsa.enc -out id_travis_rsa -d
