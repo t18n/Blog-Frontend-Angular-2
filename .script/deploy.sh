@@ -11,7 +11,8 @@ if [ $TRAVIS_BRANCH == 'master' ] ; then
     git config user.name "Turbo"
     git config user.email "tienthinhturbo@gmail.com"
     
-    git add .dist
+    ls -la
+    git add dist
     git commit -m "Deploy"
     git push --force deploy master
 else
