@@ -18,7 +18,7 @@ export class SinglearticleComponent implements OnInit {
 
   public userinfo: UserInfo = new UserInfo();
   public article: Article = new Article();
-  public articleuser: string;
+  public author: string;
   public liked: boolean = false;
   public likes: Array<{name: string}>;
   public content_id: string;
@@ -45,10 +45,10 @@ export class SinglearticleComponent implements OnInit {
       data => {
         this.article = data;
         this.likes = data.likes.data;
-        this.articleuser = data.user.data.name;
+        this.author = data.user.data.name;
         error => this.error = error.json().error;
       }
-    );
+      );
   }
 
   checklike(){
@@ -64,7 +64,7 @@ export class SinglearticleComponent implements OnInit {
       data => {
         this.getArticle();
       }
-    );
+      );
   }
 
   public getUserInfo() {
@@ -75,7 +75,7 @@ export class SinglearticleComponent implements OnInit {
           this.checklike();
           error => this.error = error.json().error;
         }
-      );
+        );
     }
   }
 }

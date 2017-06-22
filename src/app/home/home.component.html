@@ -1,184 +1,187 @@
-
 <div class="wrapper">
-	<!--=== Content Part ===-->
-	<div class="container content">
-		<div class="row magazine-page">
-			<!-- Begin Content -->
-			<div class="col-md-9">
-				<!-- Magazine Slider -->
-				<div class="carousel slide carousel-v1 margin-bottom-40" id="myCarousel-1">
-					<div class="carousel-inner">
-						<div class="item active">
-							<img alt="" src="assets/img/sliders/10.jpg">
-							<div class="carousel-caption">
-								<p>Facilisis odio, dapibus ac justo acilisis gestinas.</p>
-							</div>
-						</div>
-						<div class="item">
-							<img alt="" src="assets/img/sliders/4.jpg">
-							<div class="carousel-caption">
-								<p>Cras justo odio, dapibus ac facilisis into egestas.</p>
-							</div>
-						</div>
-						<div class="item">
-							<img alt="" src="assets/img/sliders/11.jpg">
-							<div class="carousel-caption">
-								<p>Justo cras odio apibus ac afilisis lingestas de.</p>
-							</div>
-						</div>
-					</div>
-
-					<div class="carousel-arrow">
-						<a data-slide="prev" href="#myCarousel-1" class="left carousel-control">
-								<i class="fa fa-angle-left"></i>
-							</a>
-						<a data-slide="next" href="#myCarousel-1" class="right carousel-control">
-								<i class="fa fa-angle-right"></i>
-							</a>
-					</div>
-				</div>
-				<!-- End Magazine Slider -->
-
-				<!-- Magazine News -->
-
-				<div class="magazine-news">
-
-					<div class="col-md-6" *ngFor="let article of articles | slice:sliceStart:sliceEnd; let j =index">
-						<div class="magazine-news-img">
-							<a href="#"><img class="img-responsive" src="assets/img/main/img.jpg" alt=""></a>
-							<span class="magazine-badge label-red">{{article.category.data.name}}</span>
-						</div>
-						<h3><a routerLink="/article/{{article.id}}">{{article.title}}</a></h3>
-						<div class="by-author">
-							<strong>By {{article.author_id}}</strong>
-							<span>/ {{article.updated_at}}</span>
-						</div>
-						<p>{{article.content | limitTo:'150'}}</p>
-					</div>
-
-					<div class="margin-bottom-35">
-						<hr class="hr-md">
-					</div>
-
-				</div>
-				<!-- End Magazine News -->
-
-
-
-				<div class="text-center">
-					<ul class="pagination">
-						<li>
-							<a href="#">
-								<<</a>
-						</li>
-						<li (click)="changePage(i)" *ngFor="let page of numOfPages; let i = index"><a>{{i+1}}</a></li>
-						<li><a href="#">>></a></li>
-					</ul>
-				</div>
-			</div>
-			<!-- End Content -->
-
-			<!-- Begin Sidebar -->
-			<div class="col-md-3">
-				<!-- Magazine Posts -->
-				<div class="row margin-bottom-40">
-					<div class="magazine-posts col-md-12 col-sm-6 margin-bottom-30">
-						<h3><a href="#">A good post</a></h3>
-						<span><i class="color-green">By Turbo</i> / 1 May, 2017</span>
-						<div class="magazine-posts-img">
-							<a href="#"><img class="img-responsive" src="assets/img/main/img.jpg" alt=""></a>
-							<span class="magazine-badge magazine-badge-red">Music</span>
-						</div>
-					</div>
-					<div class="magazine-posts col-md-12 col-sm-6">
-						<h3><a href="#">A good post</a></h3>
-						<span><i class="color-green">By Turbo</i> / 14 May, 2017</span>
-						<div class="magazine-posts-img">
-							<a href="#"><img class="img-responsive" src="assets/img/main/img.jpg" alt=""></a>
-							<span class="magazine-badge magazine-badge-green">Fashion</span>
-						</div>
-					</div>
-				</div>
-				<!-- End Magazine Posts -->
-
-				<!-- Quick Links -->
-				<div class="magazine-sb-categories margin-bottom-20">
-					<div class="headline">
-						<h2 class="heading-sm">Tags</h2>
-					</div>
-					<div class="row">
-						<ul class="list-unstyled col-xs-6">
-							<li><a href="#">love</a></li>
-							<li><a href="#">social</a></li>
-							<li><a href="#">productive</a></li>
-							<li><a href="#">success</a></li>
-							<li><a href="#">financial</a></li>
-							<li><a href="#">learn</a></li>
-						</ul>
-						<ul class="list-unstyled col-xs-6">
-							<li><a href="#">sex</a></li>
-							<li><a href="#">sleep</a></li>
-							<li><a href="#">fitness</a></li>
-							<li><a href="#">health</a></li>
-							<li><a href="#">career</a></li>
-							<li><a href="#">friend</a></li>
-						</ul>
-					</div>
-				</div>
-				<!-- End Quick Links -->
-
-				<!-- Photo Stream -->
-				<div class="headline">
-					<h2 class="heading-sm">Garelly</h2>
-				</div>
-				<ul class="list-unstyled blog-photos margin-bottom-35">
-					<li><a href="#"><img class="hover-effect" alt="" src="assets/img/sliders/elastislide/5.jpg"></a></li>
-					<li><a href="#"><img class="hover-effect" alt="" src="assets/img/sliders/elastislide/6.jpg"></a></li>
-					<li><a href="#"><img class="hover-effect" alt="" src="assets/img/sliders/elastislide/8.jpg"></a></li>
-					<li><a href="#"><img class="hover-effect" alt="" src="assets/img/sliders/elastislide/10.jpg"></a></li>
-					<li><a href="#"><img class="hover-effect" alt="" src="assets/img/sliders/elastislide/11.jpg"></a></li>
-					<li><a href="#"><img class="hover-effect" alt="" src="assets/img/sliders/elastislide/1.jpg"></a></li>
-					<li><a href="#"><img class="hover-effect" alt="" src="assets/img/sliders/elastislide/2.jpg"></a></li>
-					<li><a href="#"><img class="hover-effect" alt="" src="assets/img/sliders/elastislide/7.jpg"></a></li>
-				</ul>
-				<!-- End Photo Stream -->
-
-				<!-- Latest News -->
-				<div class="margin-bottom-40">
-					<div class="magazine-mini-news">
-						<h3><a href="#">Blanditiis Praesentium Volupeto</a></h3>
-						<div class="post-author">
-							<strong>By Turbo</strong>
-							<span>/ May 19, 2017</span>
-						</div>
-						<p>At vero eos et accusamus et iusto odiodig nissimos ducimus usce condimentum eleifend enim a feugiat.</p>
-					</div>
-					<hr class="hr-md">
-					<div class="magazine-mini-news">
-						<h3><a href="#">Blanditiis Praesentium Volupeto</a></h3>
-						<div class="post-author">
-							<strong>By Turbo</strong>
-							<span>/ May 17, 2017</span>
-						</div>
-						<p>At vero eos et accusamus et iusto odiodig nissimos ducimus usce condimentum eleifend enim a feugiat.</p>
-					</div>
-					<hr class="hr-md">
-					<div class="magazine-mini-news">
-						<h3><a href="#">Blanditiis Praesentium Volupeto</a></h3>
-						<div class="post-author">
-							<strong>By Turbo</strong>
-							<span>/ June 1, 2017</span>
-						</div>
-						<p>At vero eos et accusamus et iusto odiodig nissimos ducimus usce condimentum eleifend enim a feugiat.</p>
-					</div>
-				</div>
-				<!-- End Latest News -->
-			</div>
-			<!-- End Sidebar -->
-		</div>
-	</div>
-	<!--/container-->
-	<!-- End Content Part -->
+    <!--=== Content Part ===-->
+    <div class="container content">
+        <div class="row magazine-page">
+            <!-- Begin Content -->
+            <div class="col-md-9">
+                <!-- Magazine Slider -->
+                <div class="carousel slide carousel-v1 margin-bottom-40" id="myCarousel-1">
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <img alt="" src="assets/img/sliders/10.jpg">
+                            <div class="carousel-caption">
+                                <p>Facilisis odio, dapibus ac justo acilisis gestinas.</p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img alt="" src="assets/img/sliders/4.jpg">
+                            <div class="carousel-caption">
+                                <p>Cras justo odio, dapibus ac facilisis into egestas.</p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img alt="" src="assets/img/sliders/11.jpg">
+                            <div class="carousel-caption">
+                                <p>Justo cras odio apibus ac afilisis lingestas de.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-arrow">
+                        <a data-slide="prev" href="#myCarousel-1" class="left carousel-control">
+                            <i class="fa fa-angle-left"></i>
+                        </a>
+                        <a data-slide="next" href="#myCarousel-1" class="right carousel-control">
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- End Magazine Slider -->
+                <!-- Magazine News -->
+                <div class="magazine-news">
+                    <div *ngFor="let article of articles | slice:sliceStart:sliceEnd; let j ='index'">
+                        <div class="col-md-6 padding-bottom-20">
+                            <div class="magazine-news-img">
+                                <a href="#"><img class="img-responsive" src="assets/img/main/img.jpg" alt=""></a>
+                                <span class="magazine-badge label-red">{{article.category.data.name}}</span>
+                            </div>
+                            <h3><a routerLink="/article/{{article.id}}">{{article.title}}</a></h3>
+                            <div class="by-author">
+                                <strong>By {{article.user.data.name}}</strong>
+                                <span class="pull-right">{{article.updated_at_hr}}</span>
+                            </div>
+                            <p [innerHTML]="article.content | limitTo:150"></p>
+                        </div>
+                    </div>
+                    <div class="margin-bottom-35">
+                        <hr class="hr-md">
+                    </div>
+                </div>
+                <!-- End Magazine News -->
+                <div class="text-center">
+                    <ul class="pagination">
+                        <li>
+                            <a href="#">
+                                <<</a>
+                        </li>
+                        <li (click)="changePage(i)" *ngFor="let page of numOfPages; let i = index"><a>{{i+1}}</a></li>
+                        <li><a href="#">>></a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- End Content -->
+            <!-- Begin Sidebar -->
+            <div class="col-md-3">
+                <!-- Magazine Posts -->
+                <div class="row margin-bottom-40">
+                    <div class="magazine-posts col-md-12 col-sm-6 margin-bottom-30">
+                        <h3><a href="#">A good post</a></h3>
+                        <span><i class="color-green">By Turbo</i> / 1 May, 2017</span>
+                        <div class="magazine-posts-img">
+                            <a href="#"><img class="img-responsive" src="assets/img/main/img.jpg" alt=""></a>
+                            <span class="magazine-badge magazine-badge-red">Music</span>
+                        </div>
+                    </div>
+                    <div class="magazine-posts col-md-12 col-sm-6">
+                        <h3><a href="#">A good post</a></h3>
+                        <span><i class="color-green">By Turbo</i> / 14 May, 2017</span>
+                        <div class="magazine-posts-img">
+                            <a href="#"><img class="img-responsive" src="assets/img/main/img.jpg" alt=""></a>
+                            <span class="magazine-badge magazine-badge-green">Fashion</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Magazine Posts -->
+                <!-- Quick Links -->
+                <div class="magazine-sb-categories margin-bottom-20">
+                    <div class="headline">
+                        <h2 class="heading-sm">Tags</h2>
+                    </div>
+                    <div class="row">
+                        <ul class="list-unstyled col-xs-6">
+                            <li><a href="#">love</a></li>
+                            <li><a href="#">social</a></li>
+                            <li><a href="#">productive</a></li>
+                            <li><a href="#">success</a></li>
+                            <li><a href="#">financial</a></li>
+                            <li><a href="#">learn</a></li>
+                        </ul>
+                        <ul class="list-unstyled col-xs-6">
+                            <li><a href="#">sex</a></li>
+                            <li><a href="#">sleep</a></li>
+                            <li><a href="#">fitness</a></li>
+                            <li><a href="#">health</a></li>
+                            <li><a href="#">career</a></li>
+                            <li><a href="#">friend</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- End Quick Links -->
+                <!-- Photo Stream -->
+                <div class="headline">
+                    <h2 class="heading-sm">Garelly</h2>
+                </div>
+                <ul class="list-unstyled blog-photos margin-bottom-35">
+                    <li>
+                        <a href="#"><img class="hover-effect" alt="" src="assets/img/sliders/elastislide/5.jpg"></a>
+                    </li>
+                    <li>
+                        <a href="#"><img class="hover-effect" alt="" src="assets/img/sliders/elastislide/6.jpg"></a>
+                    </li>
+                    <li>
+                        <a href="#"><img class="hover-effect" alt="" src="assets/img/sliders/elastislide/8.jpg"></a>
+                    </li>
+                    <li>
+                        <a href="#"><img class="hover-effect" alt="" src="assets/img/sliders/elastislide/10.jpg"></a>
+                    </li>
+                    <li>
+                        <a href="#"><img class="hover-effect" alt="" src="assets/img/sliders/elastislide/11.jpg"></a>
+                    </li>
+                    <li>
+                        <a href="#"><img class="hover-effect" alt="" src="assets/img/sliders/elastislide/1.jpg"></a>
+                    </li>
+                    <li>
+                        <a href="#"><img class="hover-effect" alt="" src="assets/img/sliders/elastislide/2.jpg"></a>
+                    </li>
+                    <li>
+                        <a href="#"><img class="hover-effect" alt="" src="assets/img/sliders/elastislide/7.jpg"></a>
+                    </li>
+                </ul>
+                <!-- End Photo Stream -->
+                <!-- Latest News -->
+                <div class="margin-bottom-40">
+                    <div class="magazine-mini-news">
+                        <h3><a href="#">Blanditiis Praesentium Volupeto</a></h3>
+                        <div class="post-author">
+                            <strong>By Turbo</strong>
+                            <span>/ May 19, 2017</span>
+                        </div>
+                        <p>At vero eos et accusamus et iusto odiodig nissimos ducimus usce condimentum eleifend enim a feugiat.</p>
+                    </div>
+                    <hr class="hr-md">
+                    <div class="magazine-mini-news">
+                        <h3><a href="#">Blanditiis Praesentium Volupeto</a></h3>
+                        <div class="post-author">
+                            <strong>By Turbo</strong>
+                            <span>/ May 17, 2017</span>
+                        </div>
+                        <p>At vero eos et accusamus et iusto odiodig nissimos ducimus usce condimentum eleifend enim a feugiat.</p>
+                    </div>
+                    <hr class="hr-md">
+                    <div class="magazine-mini-news">
+                        <h3><a href="#">Blanditiis Praesentium Volupeto</a></h3>
+                        <div class="post-author">
+                            <strong>By Turbo</strong>
+                            <span>/ June 1, 2017</span>
+                        </div>
+                        <p>At vero eos et accusamus et iusto odiodig nissimos ducimus usce condimentum eleifend enim a feugiat.</p>
+                    </div>
+                </div>
+                <!-- End Latest News -->
+            </div>
+            <!-- End Sidebar -->
+        </div>
+    </div>
+    <!--/container-->
+    <!-- End Content Part -->
 </div>
 <!--/wrapper-->
-

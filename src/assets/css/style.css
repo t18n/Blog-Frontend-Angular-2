@@ -1,43 +1,66 @@
 /*Import Global Compulsory CSS Files*/
+
 @import url(app.css);
 @import url(blocks.css);
-
-
+@import url('https://fonts.googleapis.com/css?family=Spectral:400,500,600,700,800&subset=vietnamese');
+@import url('https://fonts.googleapis.com/css?family=Crimson+Text:400,600');
 
 * {
-	border-radius: 0;
+    border-radius: 0;
 }
 
 body {
- color: #333;
- font-size: 13px;
- line-height: 1.6;
+    font-family: 'Spectral', sans-serif;
+    color: #333;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1.6;
 }
 
 body.header-fixed-space {
-  padding-top: 94px;
+    padding-top: 94px;
 }
+
 body.header-fixed-space-v2 {
-	padding-top: 135px;
+    padding-top: 135px;
 }
 
 @media (max-width: 991px) {
-	body.header-fixed-space,
-	body.header-fixed-space-v2 {
-		padding-top: 0;
-	}
+    body.header-fixed-space,
+    body.header-fixed-space-v2 {
+        padding-top: 0;
+    }
+}
+
+h2{
+    font-family: 'Spectral', serif;
+    font-weight: 700;
+    font-size: 35px;
+    line-height: 2;
+}
+
+p{
+    font-family: 'Crimson Text', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+strong{
+    font-family: 'Crimson Text', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
 }
 
 p,
 li,
 li a,
 label {
- color: #555;
+    color: #555;
 }
 
 a {
- color: #72c02c;
- text-decoration: none;
+    color: #72c02c;
+    text-decoration: none;
 }
 
 a,
@@ -46,32 +69,37 @@ a:hover,
 a:active,
 button,
 button:hover {
-	outline: 0 !important;
+    outline: 0 !important;
 }
 
 a:focus {
-text-decoration: none;
+    text-decoration: none;
 }
+
 a:hover {
- color: #72c02c;
- text-decoration: underline;
+    color: #72c02c;
+    text-decoration: underline;
 }
+
 
 /*Boxed Layout
 ------------------------------------*/
+
 .wrapper {
-	background: #fff;
+    background: #fff;
 }
 
 .boxed-layout {
-  padding: 0;
-  box-shadow: 0 0 5px #ccc;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  background: url(../img/patterns/15.png) repeat;
+    padding: 0;
+    box-shadow: 0 0 5px #ccc;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    background: url(../img/patterns/15.png) repeat;
 }
 
+
 /*Hiding arrows for select field in IE*/
+
 select::-ms-expand {
-  display: none;
+    display: none;
 }
