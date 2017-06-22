@@ -14,6 +14,8 @@ export class Article {
   category_id : number = 0;
   author_id: number = 0;
   created_at : string = '';
+  created_at_hr : string = '';
   updated_at : string = '';
+  updated_at_hr : string = '';
   category_name : string = ''; //not sure it work for add article
 }
