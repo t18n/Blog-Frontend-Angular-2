@@ -20,62 +20,60 @@
 				<!-- Left Sidebar -->
 				<div class="col-md-9 md-margin-bottom-60">
 					<!--Blog Post-->
-					<div class="blog margin-bottom-40">
-						<h5 *ngIf="error" style="color:red;">{{error}}</h5>
-						<h2><a href="blog_item_option1.html">{{article.title}}</a></h2>
-						<div class="blog-post-tags">
-							<div class="pull-left">
-								<img src="src/assets/img/team/avatar.png" class="img-circle" alt="Author" width="70" height="70">
-							</div>
+					<div class="blog margin-bottom-30">
+						<h2>{{article.title}}</h2>
 
-							<div class="row">
-								<ul class="list-unstyled blog-info pull-left">
+						<div class="col-md-12 no-padding">
+
+							<div class="pull-left">
+								<ul class="list-unstyled list-inline blog-info">
 									<li>
-										<h4>
-											<a href="javascript:void">{{author}}</a>
+										<h4 class="muted-text">
+											<small class="text-muted">
+												By <a href="javascript:void">{{author}}</a>
+											</small>
 										</h4>
 									</li>
-									<li>
-										<h5>
-											Author headline
-										</h5>
-									</li>
 
 									<li>
-										<i class="fa fa-calendar"></i> Updated {{article.updated_at_hr}}
-									</li>
-								</ul>
-
-								<ul class="list-unstyled blog-info pull-right">
-									<li *ngIf="author != userinfo.name">
-										<span *ngIf="!liked" (click)="likeArticle(article.id)" 
-										class="btn">
-										<i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 
-										{{article.like_count}} 
-									</span>
-									<span *ngIf="liked" (click)="likeArticle(article.id)" style="cursor: pointer;">{{article.like_count}} 
-										<i class="fa fa-check" aria-hidden="true"></i> Liked</span>
-									</li>
-									
-									<li>
-										<i class="fa fa-comments"></i> 
-										<a href="#">{{article.numcomments}} 
-										</a>
+										<small class="text-muted">
+											<i class="fa fa-calendar"></i> Updated {{article.updated_at_hr}}
+										</small>
 									</li>
 								</ul>
 							</div>
 
-							<div>
-								<ul class="list-unstyled list-inline blog-tags margin-top-20">
-									<li>
-										<i class="fa fa-tags"></i>
-										<a href="#">Technology</a>
-										<a href="#">Education</a>
-										<a href="#">Internet</a>
-										<a href="#">Media</a>
-									</li>
-								</ul>
+							<div class="pull-right">
+								<ul class="list-unstyled list-inline blog-info">
+								<li *ngIf="author != userinfo.name">
+									<span *ngIf="!liked" (click)="likeArticle(article.id)" 
+									class="btn">
+									<i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 
+									{{article.like_count}} 
+								</span>
+								<span *ngIf="liked" (click)="likeArticle(article.id)" style="cursor: pointer;">{{article.like_count}} 
+									<i class="fa fa-check" aria-hidden="true"></i> Liked</span>
+								</li>
+
+								<li>
+									<i class="fa fa-comments"></i> 
+									<a href="#">{{article.numcomments}} 
+									</a>
+								</li>
+							</ul>
 							</div>
+						</div>
+
+						<div class="col-md-12 no-padding">
+							<ul class="list-unstyled list-inline blog-tags">
+								<li>
+									<i class="fa fa-tags"></i>
+									<a href="#">Technology</a>
+									<a href="#">Education</a>
+									<a href="#">Internet</a>
+									<a href="#">Media</a>
+								</li>
+							</ul>
 						</div>
 
 						<div class="blog-img margin-bottom-20 margin-top-20">
